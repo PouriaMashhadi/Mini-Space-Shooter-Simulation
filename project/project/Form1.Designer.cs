@@ -1,6 +1,6 @@
 ﻿namespace project
 {
-    partial class Form1
+    partial class GameForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,11 +29,30 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            GameTimer = new System.Windows.Forms.Timer(components);
+            SuspendLayout();
+            // 
+            // GameTimer
+            // 
+            GameTimer.Enabled = true;
+            GameTimer.Interval = 20;
+            GameTimer.Tick += GameTick;
+            // 
+            // GameForm
+            // 
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Text = "Form1";
+            Name = "GameForm";
+            Text = "Game";
+            Paint += Paint_GameForm;
+            KeyDown += KeyDown_GameForm;
+            KeyUp += KeyUp_GameForm;
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer GameTimer;
     }
 }
