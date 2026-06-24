@@ -1,6 +1,6 @@
 ﻿namespace project
 {
-    partial class GameForm
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
