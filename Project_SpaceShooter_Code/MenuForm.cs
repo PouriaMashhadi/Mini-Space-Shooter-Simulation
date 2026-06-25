@@ -5,10 +5,10 @@ using WMPLib;
 
 namespace WF1_Training
 {
-    
 
     public partial class MenuForm : Form
     {
+        string path = @"Music\MenuTheme.mp3";
         public MenuForm()
         {
             InitializeComponent();
@@ -43,7 +43,7 @@ namespace WF1_Training
 
 
             //bg Music 
-            AudioManager.Play(@"F:\C#-AP\Project\Mini-Space-Shooter-Simulation\Music\MenuTheme.mp3");
+            AudioManager.PlayMusic(path);
             
 
         }
@@ -59,12 +59,12 @@ namespace WF1_Training
         }
         private void BtnOption_Click(object sender, EventArgs e)
         {
-            AudioManager.Stop();
+            AudioManager.StopMusic();
             this.Hide();
             Options newOptions = new Options();
             newOptions.ShowDialog();
             this.Show();
-            AudioManager.Play(@"F:\C#-AP\Project\Mini-Space-Shooter-Simulation\Music\MenuTheme.mp3");
+            AudioManager.PlayMusic(path);
         }
 
         private void btnShop_Click(object sender, EventArgs e)
@@ -89,12 +89,12 @@ namespace WF1_Training
 
         private void btnAbout_Click(object sender, EventArgs e)
         {
-            AudioManager.Stop();
+            AudioManager.StopMusic();
             this.Hide();
             AboutForm about = new AboutForm();
             about.ShowDialog();
             this.Show();
-            AudioManager.Play(@"F:\C#-AP\Project\Mini-Space-Shooter-Simulation\Music\MenuTheme.mp3");
+            AudioManager.PlayMusic(path);
 
         }
     }

@@ -13,6 +13,7 @@ namespace WF1_Training
 {
     public partial class AboutForm : Form
     {
+        string path = @"Music\AboutTheme.mp3";
         public AboutForm()
         {
             InitializeComponent();
@@ -86,19 +87,19 @@ namespace WF1_Training
 
             //bg Music 
 
-            AudioManager.Play(@"F:\C#-AP\Project\Mini-Space-Shooter-Simulation\Music\AboutTheme.mp3");
+            AudioManager.PlayMusic(path);
             
 
         }
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
-            AudioManager.Stop();
+            AudioManager.StopMusic();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            AudioManager.Stop();
+            AudioManager.StopMusic();
             this.Hide();
         }
     }
