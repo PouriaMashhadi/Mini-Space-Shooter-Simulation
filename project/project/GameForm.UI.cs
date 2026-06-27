@@ -18,7 +18,7 @@ namespace project
         private void Paint_GameForm(object sender, PaintEventArgs e)
         {
             e.Graphics.DrawImage(ShipImage, player.X, player.Y, ShipWidth, ShipHeight);
-            foreach (var b in allBullets)
+            foreach (var b in bullet.allBullets)
             {
                 e.Graphics.DrawImage(BulletImage, b.X, b.Y, bulletWidth, bulletHeight);
             }

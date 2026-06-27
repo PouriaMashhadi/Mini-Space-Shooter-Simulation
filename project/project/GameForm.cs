@@ -9,10 +9,13 @@ namespace project
             GameTimer.Interval = 16; // 60fps
             SetUp();
         }
-       
+
         private void SetUp()
         {
-            bulletTypes = new bullet(1);
+            // image init
+            ImageSetUp();
+
+            //player init
             int hp = 3;
             if (does_have_ExtraLive) hp++;
             player = new PlayerShip(hp, PlayerSpeed, ShipWidth, ShipHeight);
@@ -29,7 +32,6 @@ namespace project
         }
         private void KeyDown_GameForm(object sender, KeyEventArgs e)
         {
-            e.SuppressKeyPress = true;
 
             if (e.KeyCode == Keys.W)
             {
@@ -47,18 +49,17 @@ namespace project
             {
                 player.goRight = true;
             }
-            if (e.KeyCode == Keys.Space && !shootingBullet)
+            if (e.KeyCode == Keys.Space)
             {
-                shootingBullet = true ;
-                Shoot();
+                shootingBullet = true;
             }
         }
         private void KeyUp_GameForm(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.W) player.goRight = false;
+            if (e.KeyCode == Keys.D) player.goRight = false;
             if (e.KeyCode == Keys.S) player.goDown = false;
             if (e.KeyCode == Keys.A) player.goLeft = false;
-            if (e.KeyCode == Keys.D) player.goUp = false;
+            if (e.KeyCode == Keys.W) player.goUp = false;
             if (e.KeyCode == Keys.Space)
             {
                 shootingBullet = false;
