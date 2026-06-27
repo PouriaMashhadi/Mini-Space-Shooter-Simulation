@@ -4,7 +4,7 @@ using System.Text;
 
 namespace project
 {
-    internal class PlayerShip : BaseC
+    internal class PlayerShip:BaseC
     {
         private int hp_count;
         private int speed;

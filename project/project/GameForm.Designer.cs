@@ -35,14 +35,15 @@
             // GameTimer
             // 
             GameTimer.Enabled = true;
+            GameTimer.Interval = 20;
             GameTimer.Tick += GameTick;
             // 
-            // MainForm
+            // GameForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Name = "MainForm";
+            Name = "GameForm";
             Text = "Game";
             Paint += Paint_GameForm;
             KeyDown += KeyDown_GameForm;
