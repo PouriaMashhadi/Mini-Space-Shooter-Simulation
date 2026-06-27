@@ -9,64 +9,61 @@ namespace project
             GameTimer.Interval = 16; // 60fps
             SetUp();
         }
-       
+
         private void SetUp()
         {
-            bulletTypes = new bullet(1);
+            // image init
+            ImageSetUp();
+
+            //player init
             int hp = 3;
             if (does_have_ExtraLive) hp++;
-            player = new PlayerShip(hp,bulletTypes);
-            player.X = ClientSize.Width / 2;
-            player.Y = ClientSize.Height - 300;
-            ImageSetUp();
-        }        
-       
+            player = new PlayerShip(hp, new bullet(1, bulletHeight, BulletSpeed), PlayerSpeed, ShipWidth, ShipHeight);
+            player.Reset(ClientSize.Width, ClientSize.Height);
+
+        }
+
         private void GameTick(object sender, EventArgs e)
         {
-            PlayerMovment();
-            BulletsMovement();
-            if (shootingBullet == true)
-                BulletFireRate -= 1;
-            if (BulletFireRate == 0)
-                shootingBullet = false;
-            if(shootingBullet == false)
-                BulletFireRate = 10;
-
-            this.Invalidate();
-
+            player.Move(ClientSize.Width, ClientSize.Height);
+            FireRateHolder();
+            bullet.MoveBullets();           
+            Invalidate();
         }
         private void KeyDown_GameForm(object sender, KeyEventArgs e)
         {
-            e.SuppressKeyPress = true;
 
-            if (e.KeyCode == Keys.W && !player.goDown)
+            if (e.KeyCode == Keys.Up )
             {
                 player.goUp = true;
             }
-            if (e.KeyCode == Keys.S && !player.goUp)
+            if (e.KeyCode == Keys.Down)
             {
                 player.goDown = true;
             }
-            if (e.KeyCode == Keys.A && !player.goRight)
+            if (e.KeyCode == Keys.Left )
             {
                 player.goLeft = true;
             }
-            if (e.KeyCode == Keys.D && !player.goLeft)
+            if (e.KeyCode == Keys.Right)
             {
                 player.goRight = true;
             }
-            if (e.KeyCode == Keys.Space && !shootingBullet)
+            if (e.KeyCode == Keys.Space)
             {
-                shootingBullet = true ;
-                Shoot();
+                shootingBullet = true;
             }
         }
         private void KeyUp_GameForm(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.D) player.goRight = false;
-            if (e.KeyCode == Keys.S) player.goDown = false;
-            if (e.KeyCode == Keys.A) player.goLeft = false;
-            if (e.KeyCode == Keys.W) player.goUp = false;
+            if (e.KeyCode == Keys.Right) player.goRight = false;
+            if (e.KeyCode == Keys.Down) player.goDown = false;
+            if (e.KeyCode == Keys.Left) player.goLeft = false;
+            if (e.KeyCode == Keys.Up) player.goUp = false;
+            if (e.KeyCode == Keys.Space)
+            {
+                shootingBullet = false;
+            }
         }
 
     }
