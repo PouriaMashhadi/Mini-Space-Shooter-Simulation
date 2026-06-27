@@ -4,7 +4,7 @@ using System.Text;
 
 namespace project
 {
-    internal class bullet:BaseC
+    internal class bullet : BaseC
     {
         public static List<bullet> allBullets = new List<bullet>();
 
@@ -14,10 +14,10 @@ namespace project
         private int image_height;
         private int speed;
         public int Damage { get => damage; set => damage = value; }
-        public int Image_height{ get => image_height; set => image_height = value; }
-        public int Speed { get =>  speed; set => speed = value; }
-        
-        public bullet(int damage, int height, int speed)
+        public int Image_height { get => image_height; set => image_height = value; }
+        public int Speed { get => speed; set => speed = value; }
+
+        public bullet(int damage, int height, int width, int speed) : base(-1, -1, width, height)
         {
             Damage = damage;
             image_height = height;
@@ -31,10 +31,11 @@ namespace project
         }
         public static void MoveBullets()
         {
-            
+
             for (int i = 0; i < allBullets.Count; i++)
             {
                 if (allBullets[i].update() == false) allBullets.Remove(allBullets[i]);
+                else allBullets[i].UpdateHitbox();
             }
         }
     }

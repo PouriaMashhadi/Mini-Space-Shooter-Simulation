@@ -5,7 +5,7 @@ using System.Text;
 
 namespace project
 {
-    public partial class MainForm : Form
+    public partial class GameForm : Form
     {
         Image ShipImage, BulletImage, Background, HPImage, CoinImage;
         string Ship_skin_path = @"..\..\..\..\Resource\Spaceship.png", bullet_skin_path = @"..\..\..\..\Resource\bullet.png", Background_Themes_path = @"..\..\..\..\Resource\a.png";
@@ -22,6 +22,10 @@ namespace project
             {
                 e.Graphics.DrawImage(BulletImage, b.X, b.Y, bulletWidth, bulletHeight);
             }
+
+            //draw hit box
+            foreach (var i in BaseC.AllObject)
+                e.Graphics.DrawRectangle(new Pen(Color.Red), i.Hitbox);
         }
     }
 }
