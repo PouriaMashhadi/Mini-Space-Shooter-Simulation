@@ -9,6 +9,7 @@ namespace WF1_Training.Properties
     public enum SFXType
     {
         ButtonHover,
+        ShopHover,
         ButtonClick,
         Shoot,
         Explosion,
@@ -20,7 +21,8 @@ namespace WF1_Training.Properties
     {
         private static readonly Dictionary<SFXType, string> sfxPaths = new Dictionary<SFXType, string>
         {
-            { SFXType.ButtonHover,  @"Assets\SFX\btn_hover.wav" },
+            { SFXType.ButtonHover,  @"Music\SFX\Options.wav" },
+            { SFXType.ShopHover,  @"Music\SFX\Options.wav" },
             { SFXType.ButtonClick,  @"Assets\SFX\btn_click.wav" },
             { SFXType.Shoot,        @"Assets\SFX\shoot.wav" },
             { SFXType.Explosion,    @"Assets\SFX\explosion.wav" },
@@ -49,11 +51,15 @@ namespace WF1_Training.Properties
 
         public static void PlaySFX(SFXType type)
         {
-            if (IsSFXMuted) return;
+            if (IsSFXMuted)
+                return;
+
             if (sfxPaths.TryGetValue(type, out string path))
             {
-                SoundPlayer sfx = new SoundPlayer(path);
-                sfx.Play();
+                sfxPlayer.URL = path;
+                sfxPlayer.settings.volume = SFXVolume;
+                sfxPlayer.settings.mute = IsSFXMuted;
+                sfxPlayer.controls.play();
             }
         }
 
@@ -76,6 +82,7 @@ namespace WF1_Training.Properties
         {
             IsMusicMuted = mute;
             musicPlayer.settings.mute = mute;
+        
         }
 
         public static void MuteSFX(bool mute)

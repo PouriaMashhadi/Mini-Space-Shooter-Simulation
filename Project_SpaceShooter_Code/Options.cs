@@ -17,11 +17,16 @@ namespace WF1_Training
         {
             InitializeComponent();
 
+            //Tracking Last Setting 
             trkMusic.Value = AudioManager.MusicVolume;
             trkSFX.Value = AudioManager.SFXVolume;
             chkAudio.Checked = !AudioManager.IsMusicMuted;
             chkSFX.Checked = !AudioManager.IsSFXMuted;
 
+            //Static Sizing
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.Size = new Size(826, 512);
             //trkAudio
             trkMusic.ValueChanged += (s, e) =>
             {
@@ -39,7 +44,7 @@ namespace WF1_Training
             //back
             btnBack.MouseEnter += (s, e) => btnBack.BackColor = Color.FromArgb(26, 58, 106);
             btnBack.MouseLeave += (s, e) => btnBack.BackColor = Color.Transparent;
-
+            btnBack.MouseEnter += (s, e) => AudioManager.PlaySFX(SFXType.ButtonHover);
             AudioManager.PlayMusic(path);
         }
 
@@ -64,5 +69,6 @@ namespace WF1_Training
             AudioManager.StopMusic();
             this.Hide();
         }
+
     }
 }

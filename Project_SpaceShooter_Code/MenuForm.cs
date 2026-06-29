@@ -1,3 +1,4 @@
+using Project;
 using System.Numerics;
 using WF1_Training.Properties;
 using WMPLib;
@@ -56,6 +57,7 @@ namespace WF1_Training
             btn.ForeColor = Color.FromArgb(232, 240, 255);
             btn.MouseEnter += (s, e) => btn.BackColor = Color.FromArgb(80, 140, 220);
             btn.MouseLeave += (s, e) => btn.BackColor = Color.Transparent;
+            btn.MouseEnter += (s, e) => AudioManager.PlaySFX(SFXType.ButtonHover);
         }
         private void BtnOption_Click(object sender, EventArgs e)
         {
@@ -69,7 +71,10 @@ namespace WF1_Training
 
         private void btnShop_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Shop about = new Shop();
+            about.ShowDialog();
+            this.Show();
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
