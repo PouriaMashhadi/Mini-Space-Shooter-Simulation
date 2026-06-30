@@ -37,12 +37,15 @@
             GameTimer.Enabled = true;
             GameTimer.Tick += GameTick;
             // 
-            // MainForm
+            // GameForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.Options2;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
-            Name = "MainForm";
+            KeyPreview = true;
+            Name = "GameForm";
             Text = "Game";
             Paint += Paint_GameForm;
             KeyDown += KeyDown_GameForm;
