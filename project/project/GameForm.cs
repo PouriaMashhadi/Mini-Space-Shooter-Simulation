@@ -9,12 +9,13 @@ namespace project
             GameTimer.Interval = 16; // 60fps
             SetUp();
         }
-
+        int WaveCounter = 1;
+        bool EndGame = false;
         private void SetUp()
         {
             // image init
             ImageSetUp();
-
+            EnemyWaveSetUp(WaveCounter);
             //player init
             int hp = 3;
             if (does_have_ExtraLive) hp++;
@@ -28,6 +29,11 @@ namespace project
             player.Move(ClientSize.Width, ClientSize.Height);
             FireRateHolder();
             bullet.MoveBullets();
+            UpdateEnemies();
+            UpdateAllHitboxes();
+            if (CheckWaveStage())
+                EnemyWaveSetUp(++WaveCounter);
+            if (WaveCounter > 10) EndGame = true;
             Invalidate();
         }
         private void KeyDown_GameForm(object sender, KeyEventArgs e)

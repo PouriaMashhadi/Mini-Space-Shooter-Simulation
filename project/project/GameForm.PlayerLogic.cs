@@ -14,7 +14,7 @@ namespace project
         long FireRate = 200 * TimeSpan.TicksPerMillisecond;
         long LastFireTick;
         //player variables
-        int PlayerSpeed = 3, ShipWidth = 100, ShipHeight = 100, BulletSpeed = 10, bulletWidth = 2, bulletHeight = 20;
+        int PlayerSpeed = 3, BulletSpeed = 10, bulletDamage = 1;
 
         private void Shoot()
         {
@@ -36,7 +36,7 @@ namespace project
             }
         }
         
-        private void Take_damage()
+        private void Player_Take_damage()
         {
             player.HP_count--;
             //complete after 5.3

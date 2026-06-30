@@ -1,11 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Forms.Design.Behavior;
 
 namespace project
 {
     public partial class GameForm : Form
     {
+        List<Enemy> Wave;
+        private void SpawnEnemy()
+        {
+            int x, y = 10, distance = ClientSize.Width / (Wave.Count + 1);
+            x = distance;
+
+            foreach (var i in Wave)
+            {
+                i.Spawn(x, y);
+                x += distance;
+            }
+        }
+        private void RemoveEnemies()
+        {
+            for (int i = 0; i < Wave.Count; i++)
+                if (Wave[i].Y > ClientSize.Height) { Wave.Remove(Wave[i]); i--; }
+        }
+        private void UpdateEnemies()
+        {
+            foreach (var i in Wave) i.Update();
+            RemoveEnemies();
+            Check_bullet_Collision_withEnemy();
+            Check_Enemy_Collision();
+            Check_Player_Collision_withEnemyBullet();
+        }
         private void Check_Enemy_Collision()
         {
             foreach (var i in BaseC.AllObject)
@@ -14,30 +40,23 @@ namespace project
                 {
                     if (player.Hitbox.IntersectsWith((i as Enemy).Hitbox))
                     {
-                        Take_damage();
+                        Player_Take_damage();
                     }
                 }
             }
         }
         private void Check_bullet_Collision_withEnemy()
         {
-            foreach (var i in BaseC.AllObject)
+            for (int i = 0; i < bullet.allBullets.Count; i++)
             {
-                foreach (var en in BaseC.AllObject)
+                for (int j = 0; j < Wave.Count; j++)
                 {
-                    if (en is Enemy)
+                    if (bullet.allBullets[i].Hitbox.IntersectsWith(Wave[j].Hitbox))
                     {
-                        if (i is bullet)
-                        {
-                            if ((en as Enemy).Hitbox.IntersectsWith((i as bullet).Hitbox))
-                            {
-                                if ((en as Enemy).TakeDamage() == false)
-                                {
-                                    player.EnemyKilled((en as Enemy));
-                                }
-                                bullet.allBullets.Remove((i as bullet));
-                            }
-                        }
+                        if (Wave[j].TakeDamage(bulletDamage) == false) { Wave.Remove(Wave[j]); }
+                        bullet.allBullets.Remove(bullet.allBullets[i]);
+                        i--;
+                        if (i < 0) break;
                     }
                 }
             }
@@ -50,7 +69,7 @@ namespace project
                 {
                     if (player.Hitbox.IntersectsWith((i as EnemyBullet).Hitbox))
                     {
-                        Take_damage();
+                        Player_Take_damage();
                         EnemyBullet.AllBullets.Remove((i as EnemyBullet));
 
                     }

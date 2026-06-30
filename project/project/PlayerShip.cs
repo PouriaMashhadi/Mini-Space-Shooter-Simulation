@@ -40,8 +40,8 @@ namespace project
         }
         public void Reset(int clientX, int clientY)
         {
-            X = (clientX + ImageX) / 2;
-            X = clientY - 300;
+            X = (clientX - ImageX ) / 2;
+            Y = clientY - 300;
             score = 0;
             coin = 0;
             hp_count = default_Hp;

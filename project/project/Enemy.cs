@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace project
@@ -7,19 +8,16 @@ namespace project
     internal class Enemy : BaseC
     {
         public int HP { get; set; }
-        public int Level { get; set; }  
-        public Enemy(int x, int y, int w, int h) : base(x, y, w, h) { }
-        public bool TakeDamage()
+        public float Speed { get; set; }
+        public int Score { get; set; }
+        public int Size { get; set; }
+        public Enemy(int w, int h) : base(-1, -1, w, h) { }
+        public virtual bool TakeDamage(int damage) { return false; } //retrun false if the enemy is dead
+        public virtual void Update() { }
+        public void Spawn(int x, int y)
         {
-            HP--;
-            if (HP != 0) return true;
-            Death();
-            return false;
-        }   
-        private void Death()
-        {
-            AllObject.Remove(this);
+            X = x;
+            Y = y;
         }
-        //complete in 5.3
     }
 }
