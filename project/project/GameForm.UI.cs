@@ -11,6 +11,7 @@ namespace project
         Image ShipImage, BulletImage, Background, HPImage, StandardEnemyImage;
         string Ship_skin_path = @"..\..\..\..\Resource\Spaceship.png", bullet_skin_path = @"..\..\..\..\Resource\bullet.png", Background_Themes_path = @"..\..\..\..\Resource\a.png";
         string Standard_skin_path = @"..\..\..\..\Resource\Enemy.png";
+
         private void ImageSetUp()
         {
             ShipImage = Image.FromFile(Ship_skin_path);

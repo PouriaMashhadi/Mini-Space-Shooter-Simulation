@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using System.ServiceProcess;
 using System.Text;
 
 namespace project
@@ -20,16 +18,5 @@ namespace project
         {
             Y += Speed;
         }
-        public override bool TakeDamage(int damage)
-        {
-            HP -= damage;
-            if (HP <= 0)
-            {
-                return false;
-            }
-            return true;
-        }
-
-
     }
 }

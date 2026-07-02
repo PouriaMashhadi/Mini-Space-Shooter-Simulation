@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Text;
 
 namespace project
@@ -12,7 +11,15 @@ namespace project
         public int Score { get; set; }
         public int Size { get; set; }
         public Enemy(int w, int h) : base(-1, -1, w, h) { }
-        public virtual bool TakeDamage(int damage) { return false; } //retrun false if the enemy is dead
+        public bool TakeDamage(int damage)
+        {
+            HP -= damage;
+            if (HP <= 0)
+            {
+                return false;
+            }
+            return true;
+        } //retrun false if the enemy is dead
         public virtual void Update() { }
         public void Spawn(int x, int y)
         {

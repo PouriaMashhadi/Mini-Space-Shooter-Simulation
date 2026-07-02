@@ -11,6 +11,7 @@ namespace project
         }
         int WaveCounter = 1;
         bool EndGame = false;
+
         private void SetUp()
         {
             // image init
@@ -21,7 +22,6 @@ namespace project
             if (does_have_ExtraLive) hp++;
             player = new PlayerShip(hp, PlayerSpeed, ShipWidth, ShipHeight);
             player.Reset(ClientSize.Width, ClientSize.Height);
-
         }
 
         private void GameTick(object sender, EventArgs e)
