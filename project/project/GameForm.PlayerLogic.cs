@@ -35,7 +35,6 @@ namespace project
                 }
             }
         }
-        
         private void Player_Take_damage()
         {
             player.HP_count--;

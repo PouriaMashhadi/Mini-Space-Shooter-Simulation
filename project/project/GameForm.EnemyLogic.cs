@@ -3,6 +3,7 @@
     public partial class GameForm : Form
     {
         List<Enemy> Wave;
+
         private void SpawnEnemy()
         {
             int x, y = 10, distance = ClientSize.Width / (Wave.Count + 1);
@@ -26,6 +27,8 @@
             Check_bullet_Collision_withEnemy();
             Check_Enemy_Collision();
             Check_Player_Collision_withEnemyBullet();
+            ShooterEnemy.Shoot(SmallEnemyWidth, SmallEnemyHeight, bulletWidth, bulletHeight, BulletSpeed);
+            EnemyBullet.MoveBullets(ClientSize.Height);
         }
         private void Check_Enemy_Collision()
         {
@@ -48,7 +51,13 @@
                 {
                     if (bullet.allBullets[i].Hitbox.IntersectsWith(Wave[j].Hitbox))
                     {
-                        if (Wave[j].TakeDamage(bulletDamage) == false) { Wave.Remove(Wave[j]); }
+                        bool check = Wave[j].TakeDamage(bulletDamage);
+                        if (Wave[j].TakeDamage(bulletDamage) == false)
+                        {
+                            if (Wave[j] is ShooterEnemy)
+                                (Wave[j] as ShooterEnemy).Kill();
+                            Wave.Remove(Wave[j]);
+                        }
                         bullet.allBullets.Remove(bullet.allBullets[i]);
                         i--;
                         if (i < 0) break;
@@ -71,5 +80,6 @@
                 }
             }
         }
+
     }
 }

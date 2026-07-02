@@ -11,7 +11,7 @@ namespace project
         public ScoutEnemy(int w, int h, int Wave) : base(w, h)
         {
             Wave--;
-            Score = 1;
+            Score = 2;
             Speed = (float)(0.5 * (2 + 0.1 * Wave));
             HP = 2 + 2 * Wave;
         }

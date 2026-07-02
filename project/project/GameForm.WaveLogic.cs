@@ -17,6 +17,9 @@ namespace project
                 case 2:
                     Wave = new List<Enemy> { new ScoutEnemy(SmallEnemyWidth, SmallEnemyHeight, WaveCounter), new ScoutEnemy(SmallEnemyWidth, SmallEnemyHeight, WaveCounter), new ScoutEnemy(SmallEnemyWidth, SmallEnemyHeight, WaveCounter), new ScoutEnemy(SmallEnemyWidth, SmallEnemyHeight, WaveCounter), new ScoutEnemy(SmallEnemyWidth, SmallEnemyHeight, WaveCounter), };
                     break;
+                case 3:
+                    Wave = new List<Enemy> { new ShooterEnemy(SmallEnemyWidth, SmallEnemyHeight, WaveCounter) };
+                    break;
             }
             SpawnEnemy();
         }

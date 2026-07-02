@@ -9,7 +9,7 @@ namespace project
             GameTimer.Interval = 16; // 60fps
             SetUp();
         }
-        int WaveCounter = 1;
+        int WaveCounter = 3;
         bool EndGame = false;
 
         private void SetUp()
