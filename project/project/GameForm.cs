@@ -9,8 +9,8 @@ namespace project
             GameTimer.Interval = 16; // 60fps
             SetUp();
         }
-        int WaveCounter = 3;
-        bool EndGame = false;
+        int WaveCounter = 4;
+        bool GameOver = false;
 
         private void SetUp()
         {
@@ -26,15 +26,24 @@ namespace project
 
         private void GameTick(object sender, EventArgs e)
         {
-            player.Move(ClientSize.Width, ClientSize.Height);
-            FireRateHolder();
-            bullet.MoveBullets();
-            UpdateEnemies();
-            UpdateAllHitboxes();
-            if (CheckWaveStage())
-                EnemyWaveSetUp(++WaveCounter);
-            if (WaveCounter > 10) EndGame = true;
-            Invalidate();
+            if (GameOver)
+            {
+
+            }
+            else
+            {
+                //PlayerDeath();
+                lblHP.Text = player.HP_count.ToString();
+                player.Move(ClientSize.Width, ClientSize.Height);
+                FireRateHolder();
+                UpdateEnemies();
+                UpdateAllHitboxes();
+                bullet.MoveBullets();               
+                if (CheckWaveStage())
+                    EnemyWaveSetUp(++WaveCounter);
+                if (WaveCounter > 10) GameOver = true;
+                Invalidate();
+            }
         }
         private void KeyDown_GameForm(object sender, KeyEventArgs e)
         {

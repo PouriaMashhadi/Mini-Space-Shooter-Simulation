@@ -28,17 +28,24 @@
             Check_Enemy_Collision();
             Check_Player_Collision_withEnemyBullet();
             ShooterEnemy.Shoot(SmallEnemyWidth, SmallEnemyHeight, bulletWidth, bulletHeight, BulletSpeed);
-            EnemyBullet.MoveBullets(ClientSize.Height);
+            HeavyTankEnemy.Shoot(SmallEnemyWidth, SmallEnemyHeight, bulletWidth, bulletHeight, BulletSpeed);
+            EnemyBullet.MoveBullets(ClientSize.Height, ClientSize.Width);
         }
         private void Check_Enemy_Collision()
         {
+            long now = DateTime.Now.Ticks;
             foreach (var i in BaseC.AllObject)
             {
                 if (i is Enemy)
                 {
-                    if (player.Hitbox.IntersectsWith((i as Enemy).Hitbox))
+                    if (player.Hitbox.IntersectsWith(i.Hitbox))
                     {
-                        Player_Take_damage();
+                        if (i is TerroristEnemy) Wave.Remove((i as Enemy));
+                        if (now - PlayerLastDamageTacken > DamageImmunity)
+                        {
+                            PlayerLastDamageTacken = now;
+                            Player_Take_damage();
+                        }
                     }
                 }
             }
@@ -56,6 +63,8 @@
                         {
                             if (Wave[j] is ShooterEnemy)
                                 (Wave[j] as ShooterEnemy).Kill();
+                            if (Wave[j] is HeavyTankEnemy)
+                                (Wave[j] as HeavyTankEnemy).Kill();
                             Wave.Remove(Wave[j]);
                         }
                         bullet.allBullets.Remove(bullet.allBullets[i]);
@@ -67,17 +76,21 @@
         }
         private void Check_Player_Collision_withEnemyBullet()
         {
-            foreach (var i in BaseC.AllObject)
+            long now = DateTime.Now.Ticks;
+            for (int i = 0; i < EnemyBullet.AllBullets.Count; i++)
             {
-                if (i is EnemyBullet)
+
+                if (player.Hitbox.IntersectsWith(EnemyBullet.AllBullets[i].Hitbox))
                 {
-                    if (player.Hitbox.IntersectsWith((i as EnemyBullet).Hitbox))
+                    EnemyBullet.AllBullets.Remove(EnemyBullet.AllBullets[i]);
+                    if (now - PlayerLastDamageTacken > DamageImmunity)
                     {
                         Player_Take_damage();
-                        EnemyBullet.AllBullets.Remove((i as EnemyBullet));
-
+                        PlayerLastDamageTacken = now;
                     }
+                    i--;
                 }
+
             }
         }
 

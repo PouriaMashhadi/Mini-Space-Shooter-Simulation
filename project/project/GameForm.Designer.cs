@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             GameTimer = new System.Windows.Forms.Timer(components);
             lblStageCounter = new Label();
+            lblHP = new Label();
             SuspendLayout();
             // 
             // GameTimer
@@ -47,6 +48,15 @@
             lblStageCounter.TabIndex = 0;
             lblStageCounter.Text = "1";
             // 
+            // lblHP
+            // 
+            lblHP.AutoSize = true;
+            lblHP.Location = new Point(242, 31);
+            lblHP.Name = "lblHP";
+            lblHP.Size = new Size(59, 25);
+            lblHP.TabIndex = 1;
+            lblHP.Text = "label1";
+            // 
             // GameForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -54,6 +64,7 @@
             BackgroundImage = Properties.Resources.Options2;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1143, 554);
+            Controls.Add(lblHP);
             Controls.Add(lblStageCounter);
             KeyPreview = true;
             Name = "GameForm";
@@ -69,5 +80,6 @@
 
         private System.Windows.Forms.Timer GameTimer;
         private Label lblStageCounter;
+        private Label lblHP;
     }
 }

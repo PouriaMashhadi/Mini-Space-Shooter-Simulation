@@ -20,6 +20,12 @@ namespace project
                 case 3:
                     Wave = new List<Enemy> { new ShooterEnemy(SmallEnemyWidth, SmallEnemyHeight, WaveCounter) };
                     break;
+                case 4:
+                    Wave = new List<Enemy> { new HeavyTankEnemy(SmallEnemyWidth * 2, SmallEnemyHeight, WaveCounter), new HeavyTankEnemy(SmallEnemyWidth * 2, SmallEnemyHeight, WaveCounter) };
+                    break;
+                case 5:
+                    Wave = new List<Enemy> { new TerroristEnemy(SmallEnemyWidth, SmallEnemyHeight, WaveCounter, player) };
+                    break;
             }
             SpawnEnemy();
         }
