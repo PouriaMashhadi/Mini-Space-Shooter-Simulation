@@ -4,7 +4,7 @@ using System.Media;
 using System.Text;
 using WMPLib;
 
-namespace WF1_Training.Properties
+namespace Project.Properties
 {
     public enum SFXType
     {

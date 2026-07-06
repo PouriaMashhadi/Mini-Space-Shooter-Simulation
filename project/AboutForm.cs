@@ -6,10 +6,10 @@ using System.Drawing;
 using System.Numerics;
 using System.Text;
 using System.Windows.Forms;
-using WF1_Training.Properties;
+using Project.Properties;
 using WMPLib;
 
-namespace WF1_Training
+namespace Project
 {
     public partial class AboutForm : Form
     {

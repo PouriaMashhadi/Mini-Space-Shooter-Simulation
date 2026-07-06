@@ -1,4 +1,4 @@
-﻿namespace WF1_Training
+﻿namespace Project
 {
     partial class AboutForm
     {

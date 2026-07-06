@@ -1,4 +1,4 @@
-﻿namespace WF1_Training
+﻿namespace Project
 {
     partial class Options
     {
@@ -284,6 +284,7 @@
             Controls.Add(pnlDivider);
             Controls.Add(lblOption);
             Name = "Options";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Options";
             grpAudio.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)trkSFX).EndInit();

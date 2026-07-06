@@ -5,9 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using WF1_Training.Properties;
+using Project.Properties;
 
-namespace WF1_Training
+namespace Project
 {
     public partial class Options : Form
     {
@@ -69,6 +69,7 @@ namespace WF1_Training
             AudioManager.StopMusic();
             this.Hide();
         }
+
 
     }
 }

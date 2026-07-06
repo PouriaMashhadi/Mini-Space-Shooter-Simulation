@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using WF1_Training.Properties;
+using Project.Properties;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Project

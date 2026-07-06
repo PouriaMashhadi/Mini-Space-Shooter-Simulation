@@ -1,10 +1,10 @@
 using Project;
 using System.Numerics;
-using WF1_Training.Properties;
+using Project.Properties;
 using WMPLib;
 
 
-namespace WF1_Training
+namespace Project
 {
 
     public partial class MenuForm : Form
@@ -79,7 +79,10 @@ namespace WF1_Training
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-
+            //this.Hide();
+            //GameForm gf = new GameForm();
+            //gf.ShowDialog();
+            //this.Show();
         }
 
         private void MenuForm_Load(object sender, EventArgs e)
