@@ -7,14 +7,15 @@ namespace project
     public partial class GameForm : Form
     {
         bool does_have_ExtraLive;
-
+        
         //classes
         PlayerShip player;
         bool shootingBullet;
         long FireRate = 200 * TimeSpan.TicksPerMillisecond;
-        long LastFireTick;
+        long DamageImmunity = 1000 * TimeSpan.TicksPerMillisecond;
+        long LastFireTick, PlayerLastDamageTacken;
         //player variables
-        int PlayerSpeed = 3, ShipWidth = 100, ShipHeight = 100, BulletSpeed = 10, bulletWidth = 2, bulletHeight = 20;
+        int PlayerSpeed = 3, BulletSpeed = 10, bulletDamage = 1;
 
         private void Shoot()
         {
@@ -35,12 +36,14 @@ namespace project
                 }
             }
         }
-        
-        private void Take_damage()
+        private void Player_Take_damage()
         {
             player.HP_count--;
             //complete after 5.3
         }
-        
+        private void PlayerDeath()
+        {
+            if (player.HP_count == 0) GameOver = true;
+        }
     }
 }

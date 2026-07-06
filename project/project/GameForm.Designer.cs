@@ -30,6 +30,8 @@
         {
             components = new System.ComponentModel.Container();
             GameTimer = new System.Windows.Forms.Timer(components);
+            lblStageCounter = new Label();
+            lblHP = new Label();
             SuspendLayout();
             // 
             // GameTimer
@@ -37,21 +39,47 @@
             GameTimer.Enabled = true;
             GameTimer.Tick += GameTick;
             // 
-            // MainForm
+            // lblStageCounter
+            // 
+            lblStageCounter.AutoSize = true;
+            lblStageCounter.Location = new Point(1072, 9);
+            lblStageCounter.Name = "lblStageCounter";
+            lblStageCounter.Size = new Size(22, 25);
+            lblStageCounter.TabIndex = 0;
+            lblStageCounter.Text = "1";
+            // 
+            // lblHP
+            // 
+            lblHP.AutoSize = true;
+            lblHP.Location = new Point(242, 31);
+            lblHP.Name = "lblHP";
+            lblHP.Size = new Size(59, 25);
+            lblHP.TabIndex = 1;
+            lblHP.Text = "label1";
+            // 
+            // GameForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Name = "MainForm";
+            BackgroundImage = Properties.Resources.Options2;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1143, 554);
+            Controls.Add(lblHP);
+            Controls.Add(lblStageCounter);
+            KeyPreview = true;
+            Name = "GameForm";
             Text = "Game";
             Paint += Paint_GameForm;
             KeyDown += KeyDown_GameForm;
             KeyUp += KeyUp_GameForm;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private System.Windows.Forms.Timer GameTimer;
+        private Label lblStageCounter;
+        private Label lblHP;
     }
 }
