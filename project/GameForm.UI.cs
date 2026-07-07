@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
 
-namespace project
+namespace Project
 {
     public partial class GameForm : Form
     {
         int bulletWidth = 20, bulletHeight = 20, ShipWidth = 100, ShipHeight = 100, SmallEnemyWidth = 30, SmallEnemyHeight = 30;
         Image ShipImage, BulletImage, Background, HPImage, StandardEnemyImage, EnemyBulletImage;
-        string Ship_skin_path = @"..\..\..\..\Resource\Spaceship.png", bullet_skin_path = @"..\..\..\..\Resource\EnemyBullet.png", Background_Themes_path = @"..\..\..\..\Resource\a.png";
-        string Standard_skin_path = @"..\..\..\..\Resource\Enemy.png", Enemy_Bullet_Path = @"..\..\..\..\Resource\EnemyBullet.png";
+        string Ship_skin_path = @"img\Spaceship.png", bullet_skin_path = @"img\EnemyBullet.png", Background_Themes_path = @"img\Options2.jpg";
+        string Standard_skin_path = @"img\Enemy.png", Enemy_Bullet_Path = @"img\EnemyBullet.png";
 
         private void ImageSetUp()
         {

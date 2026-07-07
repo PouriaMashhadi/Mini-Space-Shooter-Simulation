@@ -79,10 +79,10 @@ namespace Project
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            //GameForm gf = new GameForm();
-            //gf.ShowDialog();
-            //this.Show();
+            this.Hide();
+            GameForm gf = new GameForm();
+            gf.ShowDialog();
+            this.Show();
         }
 
         private void MenuForm_Load(object sender, EventArgs e)

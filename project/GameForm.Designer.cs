@@ -1,4 +1,4 @@
-﻿namespace project
+﻿namespace Project
 {
     partial class GameForm
     {
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameForm));
             GameTimer = new System.Windows.Forms.Timer(components);
             lblStageCounter = new Label();
             lblHP = new Label();
@@ -42,31 +43,34 @@
             // lblStageCounter
             // 
             lblStageCounter.AutoSize = true;
-            lblStageCounter.Location = new Point(1072, 9);
+            lblStageCounter.Location = new Point(750, 5);
+            lblStageCounter.Margin = new Padding(2, 0, 2, 0);
             lblStageCounter.Name = "lblStageCounter";
-            lblStageCounter.Size = new Size(22, 25);
+            lblStageCounter.Size = new Size(13, 15);
             lblStageCounter.TabIndex = 0;
             lblStageCounter.Text = "1";
             // 
             // lblHP
             // 
             lblHP.AutoSize = true;
-            lblHP.Location = new Point(242, 31);
+            lblHP.Location = new Point(169, 19);
+            lblHP.Margin = new Padding(2, 0, 2, 0);
             lblHP.Name = "lblHP";
-            lblHP.Size = new Size(59, 25);
+            lblHP.Size = new Size(38, 15);
             lblHP.TabIndex = 1;
             lblHP.Text = "label1";
             // 
             // GameForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.Options2;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1143, 554);
+            ClientSize = new Size(800, 332);
             Controls.Add(lblHP);
             Controls.Add(lblStageCounter);
             KeyPreview = true;
+            Margin = new Padding(2, 2, 2, 2);
             Name = "GameForm";
             Text = "Game";
             Paint += Paint_GameForm;

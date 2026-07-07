@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace project
+namespace Project
 {
     internal class Enemy : BaseC
     {

@@ -54,6 +54,12 @@
     <None Update="img\Coin.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="img\Enemy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\EnemyBullet.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="img\laserRed16.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
