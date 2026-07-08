@@ -12,7 +12,7 @@ namespace Project
     public partial class Options : Form
     {
         string path = @"Music\Options.mp3";
-
+        private FormScaler scaler;
         public Options()
         {
             InitializeComponent();
@@ -23,10 +23,8 @@ namespace Project
             chkAudio.Checked = !AudioManager.IsMusicMuted;
             chkSFX.Checked = !AudioManager.IsSFXMuted;
 
-            //Static Sizing
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Size = new Size(826, 512);
+            //Dynamic Sizing
+            scaler = new FormScaler(this);
             //trkAudio
             trkMusic.ValueChanged += (s, e) =>
             {

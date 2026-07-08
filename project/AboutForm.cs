@@ -14,15 +14,14 @@ namespace Project
     public partial class AboutForm : Form
     {
         string path = @"Music\AboutTheme.mp3";
+        private FormScaler scaler;
+
         public AboutForm()
         {
             InitializeComponent();
 
-            //Static Sizing
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Size = new Size(826, 512);
-
+            //Dynamic Sizing
+            scaler = new FormScaler(this);
             //Title
             lblTitle.ForeColor = Color.FromArgb(122, 184, 245);
             //Divider

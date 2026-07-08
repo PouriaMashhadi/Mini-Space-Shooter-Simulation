@@ -2,9 +2,16 @@ namespace Project
 {
     public partial class GameForm : Form
     {
+        private FormScaler scaler;
         public GameForm()
         {
-            InitializeComponent();
+
+             InitializeComponent();
+
+            //Dynamic Sizing
+            scaler = new FormScaler(this);
+
+
             DoubleBuffered = true;
             GameTimer.Interval = 16; // 60fps
             SetUp();

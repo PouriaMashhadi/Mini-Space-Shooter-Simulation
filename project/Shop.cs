@@ -12,13 +12,14 @@ namespace Project
 {
     public partial class Shop : Form
     {
+
+        private FormScaler scaler;
+
         public Shop()
         {
             InitializeComponent();
-            // Static Sizing
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Size = new Size(1059, 750);
+            // Dynamic Sizing
+            scaler = new FormScaler(this);
             //Hover
             StylePic(picShip1);
             StylePic(picShip2);

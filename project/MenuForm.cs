@@ -10,14 +10,13 @@ namespace Project
     public partial class MenuForm : Form
     {
         string path = @"Music\MenuTheme.mp3";
+        private FormScaler scaler;
         public MenuForm()
         {
             InitializeComponent();
 
-            //Static Sizing
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Size = new Size(826, 512);
+            scaler = new FormScaler(this);
+
 
             // Form
             this.BackColor = Color.FromArgb(5, 13, 26);
@@ -85,10 +84,7 @@ namespace Project
             this.Show();
         }
 
-        private void MenuForm_Load(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnQuit_Click(object sender, EventArgs e)
         {

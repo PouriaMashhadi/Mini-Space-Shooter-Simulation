@@ -107,8 +107,8 @@
             // 
             // MenuForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = SystemColors.InactiveCaptionText;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
@@ -123,7 +123,6 @@
             Name = "MenuForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Mini Space Shooter Simulation";
-            Load += MenuForm_Load;
             ResumeLayout(false);
         }
 

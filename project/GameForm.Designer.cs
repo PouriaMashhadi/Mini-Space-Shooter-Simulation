@@ -62,16 +62,17 @@
             // 
             // GameForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 332);
             Controls.Add(lblHP);
             Controls.Add(lblStageCounter);
             KeyPreview = true;
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "GameForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Game";
             Paint += Paint_GameForm;
             KeyDown += KeyDown_GameForm;
