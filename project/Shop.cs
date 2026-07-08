@@ -43,5 +43,10 @@ namespace Project
         {
             this.Hide();
         }
+
+        private void picShip2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

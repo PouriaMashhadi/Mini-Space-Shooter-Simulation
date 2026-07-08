@@ -205,6 +205,7 @@
             picShip2.Size = new Size(149, 117);
             picShip2.TabIndex = 2;
             picShip2.TabStop = false;
+            picShip2.Click += picShip2_Click;
             // 
             // picShip3
             // 
