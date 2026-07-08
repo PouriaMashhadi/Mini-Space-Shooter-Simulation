@@ -78,10 +78,13 @@ namespace Project
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
+            AudioManager.StopMusic();
             this.Hide();
             GameForm gf = new GameForm();
             gf.ShowDialog();
             this.Show();
+            AudioManager.PlayMusic(path);
+
         }
 
 

@@ -1,15 +1,19 @@
+using Project.Properties;
+using WMPLib;
+
 namespace Project
 {
     public partial class GameForm : Form
     {
         private FormScaler scaler;
+        string path = @"Music\audio2.mp3";
+
         public GameForm()
         {
 
              InitializeComponent();
 
-
-
+            AudioManager.PlayMusic(path);
             //Dynamic Sizing
             scaler = new FormScaler(this);
 
@@ -92,5 +96,10 @@ namespace Project
             }
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            AudioManager.StopMusic();
+        }
     }
 }
