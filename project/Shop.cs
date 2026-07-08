@@ -12,14 +12,20 @@ namespace Project
 {
     public partial class Shop : Form
     {
-
         private FormScaler scaler;
+
+        private static readonly Color HoverColor = Color.FromArgb(255, 255, 128);
+        private static readonly Color SelectedColor = Color.FromArgb(120, 220, 120);
+
+        private PictureBox selectedShipPic;
+        private PictureBox selectedBulletPic;
 
         public Shop()
         {
             InitializeComponent();
             // Dynamic Sizing
             scaler = new FormScaler(this);
+
             //Hover
             StylePic(picShip1);
             StylePic(picShip2);
@@ -32,12 +38,45 @@ namespace Project
 
             btnBack.MouseEnter += (s, e) => btnBack.BackColor = Color.FromArgb(80, 140, 220);
             btnBack.MouseLeave += (s, e) => btnBack.BackColor = Color.Transparent;
+
+            SelectShip(picShip1);
+            GameForm.Ship_skin_path = @"img\Spaceship.png";
+
         }
-        private static void StylePic(PictureBox pb)
+
+        private void StylePic(PictureBox pb)
         {
-            pb.MouseEnter += (s, e) => pb.BackColor = Color.FromArgb(255, 255, 128);
-            pb.MouseLeave += (s, e) => pb.BackColor = Color.Transparent;
+            pb.MouseEnter += (s, e) =>
+            {
+                if (pb != selectedShipPic && pb != selectedBulletPic)
+                    pb.BackColor = HoverColor;
+            };
+
+            pb.MouseLeave += (s, e) =>
+            {
+                if (pb != selectedShipPic && pb != selectedBulletPic)
+                    pb.BackColor = Color.Transparent;
+            };
+
             pb.MouseEnter += (s, e) => AudioManager.PlaySFX(SFXType.ShopHover);
+        }
+
+        private void SelectShip(PictureBox pic)
+        {
+            if (selectedShipPic != null)
+                selectedShipPic.BackColor = Color.Transparent;
+
+            selectedShipPic = pic;
+            selectedShipPic.BackColor = SelectedColor;
+        }
+
+        private void SelectBullet(PictureBox pic)
+        {
+            if (selectedBulletPic != null)
+                selectedBulletPic.BackColor = Color.Transparent;
+
+            selectedBulletPic = pic;
+            selectedBulletPic.BackColor = SelectedColor;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -47,7 +86,28 @@ namespace Project
 
         private void picShip2_Click(object sender, EventArgs e)
         {
-
+            GameForm.Ship_skin_path = @"img\ship2.png";
+            SelectShip(picShip2);
         }
+
+        private void picShip3_Click(object sender, EventArgs e)
+        {
+            GameForm.Ship_skin_path = @"img\ship3.png";
+            SelectShip(picShip3);
+        }
+
+        private void picShip4_Click(object sender, EventArgs e)
+        {
+            GameForm.Ship_skin_path = @"img\ship4.png";
+            SelectShip(picShip4);
+        }
+
+        private void picShip1_Click(object sender, EventArgs e)
+        {
+            GameForm.Ship_skin_path = @"img\Spaceship.png";
+            SelectShip(picShip1);
+        }
+
+
     }
 }

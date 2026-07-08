@@ -195,6 +195,7 @@
             picShip1.Size = new Size(149, 117);
             picShip1.TabIndex = 3;
             picShip1.TabStop = false;
+            picShip1.Click += picShip1_Click;
             // 
             // picShip2
             // 
@@ -216,6 +217,7 @@
             picShip3.Size = new Size(149, 117);
             picShip3.TabIndex = 1;
             picShip3.TabStop = false;
+            picShip3.Click += picShip3_Click;
             // 
             // picShip4
             // 
@@ -226,6 +228,7 @@
             picShip4.Size = new Size(149, 117);
             picShip4.TabIndex = 0;
             picShip4.TabStop = false;
+            picShip4.Click += picShip4_Click;
             // 
             // grpBullets
             // 
