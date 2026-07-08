@@ -7,10 +7,10 @@ namespace Project
 {
     public partial class GameForm : Form
     {
-        int bulletWidth = 20, bulletHeight = 20, ShipWidth = 100, ShipHeight = 100, SmallEnemyWidth = 30, SmallEnemyHeight = 30;
-        Image ShipImage, BulletImage, Background, HPImage, StandardEnemyImage, EnemyBulletImage;
+        int bulletWidth = 20, bulletHeight = 20, ShipWidth = 100, ShipHeight = 100, SmallEnemyWidth = 30, SmallEnemyHeight = 30, CoinWidth = 10, CoinHeight = 10;
+        Image ShipImage, BulletImage, Background, HPImage, StandardEnemyImage, EnemyBulletImage, CoinImage;
         public static string Ship_skin_path = @"img\Spaceship.png", bullet_skin_path = @"img\EnemyBullet.png", Background_Themes_path = @"img\Options2.jpg";
-        public string Standard_skin_path = @"img\Enemy.png", Enemy_Bullet_Path = @"img\EnemyBullet.png";
+        public string Standard_skin_path = @"img\Enemy.png", Enemy_Bullet_Path = @"img\EnemyBullet.png", Coin_Skin_path = @"img\Coin.png";
 
         private void ImageSetUp()
         {
@@ -18,6 +18,7 @@ namespace Project
             BulletImage = Image.FromFile(bullet_skin_path);
             StandardEnemyImage = Image.FromFile(Standard_skin_path);
             EnemyBulletImage = Image.FromFile(Enemy_Bullet_Path);
+            CoinImage = Image.FromFile(Coin_Skin_path);
         }
 
 
@@ -37,13 +38,18 @@ namespace Project
             {
                 if (i is HeavyTankEnemy)
                     e.Graphics.DrawImage(StandardEnemyImage, i.X, i.Y, SmallEnemyWidth * 2, SmallEnemyHeight);
-                else 
-                    e.Graphics.DrawImage(StandardEnemyImage, i.X, i.Y, SmallEnemyWidth * 2, SmallEnemyHeight);
+                else
+                    e.Graphics.DrawImage(StandardEnemyImage, i.X, i.Y, SmallEnemyWidth , SmallEnemyHeight);
             }
             foreach (var b in EnemyBullet.AllBullets)
             {
                 e.Graphics.DrawImage(EnemyBulletImage, b.X, b.Y, bulletWidth, bulletHeight);
             }
+            foreach(var c in BaseC.AllObject)
+                if(c is Coin)
+                {
+                    e.Graphics.DrawImage(CoinImage, c.X, c.Y, CoinWidth, CoinHeight);
+                }
             //draw hit box
             //foreach (var i in BaseC.AllObject)
             //    e.Graphics.DrawRectangle(new Pen(Color.Red), i.Hitbox);

@@ -20,11 +20,19 @@ namespace Project
             GameTimer.Interval = 16; // 60fps
             SetUp();
         }
-        int WaveCounter = 4;
+        int WaveCounter = 1;
         bool GameOver = false;
 
         private void SetUp()
         {
+            // reset objects
+            BaseC.AllObject.Clear();
+            HeavyTankEnemy.allShooters.Clear();
+            ShooterEnemy.allShooters.Clear();
+            bullet.allBullets.Clear();
+            EnemyBullet.AllBullets.Clear();
+            
+
             // image init
             ImageSetUp();
             EnemyWaveSetUp(WaveCounter);
@@ -49,6 +57,7 @@ namespace Project
                 FireRateHolder();
                 UpdateEnemies();
                 UpdateAllHitboxes();
+                UpdateCoins();
                 bullet.MoveBullets();               
                 if (CheckWaveStage())
                     EnemyWaveSetUp(++WaveCounter);

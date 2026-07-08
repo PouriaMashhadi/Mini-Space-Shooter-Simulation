@@ -46,9 +46,6 @@ namespace Project
             coin = 0;
             hp_count = default_Hp;
         }
-        public void EnemyKilled(Enemy enemy)
-        {
-
-        }
+        
     }
 }
