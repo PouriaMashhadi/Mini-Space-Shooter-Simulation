@@ -41,7 +41,7 @@ namespace Project
 
             SelectShip(picShip1);
             GameForm.Ship_skin_path = @"img\Spaceship.png";
-
+            GameForm.bullet_skin_path = @"img\EnemyBullet.png";
         }
 
         private void StylePic(PictureBox pb)
@@ -108,6 +108,38 @@ namespace Project
             SelectShip(picShip1);
         }
 
+        private void pbTemplate1_Click(object sender, EventArgs e)
+        {
+            GameForm.Background_Themes_path = @"img\Options2.jpg";
+            lblTem1.BackColor = Color.Green;
+            lblTemplate2.BackColor = Color.Transparent;
+        }
 
+        private void pbTemplate2_Click(object sender, EventArgs e)
+        {
+            GameForm.Background_Themes_path = @"img\Template2.jpg";
+            lblTemplate2.BackColor = Color.Green;
+            lblTem1.BackColor = Color.Transparent;
+
+        }
+
+        private void picBullet3_Click(object sender, EventArgs e)
+        {
+            GameForm.bullet_skin_path = @"img\Bulletmain3.png";
+            SelectBullet(picBullet3);
+        }
+
+        private void picBullet2_Click(object sender, EventArgs e)
+        {
+            GameForm.bullet_skin_path = @"img\Bulletmain2.png";
+            SelectBullet(picBullet2);
+        }
+
+        private void picBullet1_Click(object sender, EventArgs e)
+        {
+            GameForm.bullet_skin_path = @"img\EnemyBullet.png";
+            SelectBullet(picBullet1);
+
+        }
     }
 }

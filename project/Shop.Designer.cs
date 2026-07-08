@@ -56,6 +56,17 @@
             lblCoins = new Label();
             pictureBox1 = new PictureBox();
             lblCoinCount = new Label();
+            grpTemplate = new GroupBox();
+            lblPriceTem1 = new Label();
+            lblPriceTem2 = new Label();
+            lblTemplate2 = new Label();
+            lblTem1 = new Label();
+            pbTemplate2 = new PictureBox();
+            pbTemplate1 = new PictureBox();
+            grpExtra = new GroupBox();
+            lblPriceExtraHealth = new Label();
+            lblExtra = new Label();
+            pbExtraHealth = new PictureBox();
             grpShips.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picShip1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picShip2).BeginInit();
@@ -66,6 +77,11 @@
             ((System.ComponentModel.ISupportInitialize)picBullet3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picBullet2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            grpTemplate.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbTemplate2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbTemplate1).BeginInit();
+            grpExtra.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbExtraHealth).BeginInit();
             SuspendLayout();
             // 
             // lblTitle
@@ -107,7 +123,7 @@
             grpShips.ForeColor = Color.FromArgb(192, 255, 255);
             grpShips.Location = new Point(102, 89);
             grpShips.Name = "grpShips";
-            grpShips.Size = new Size(832, 238);
+            grpShips.Size = new Size(832, 210);
             grpShips.TabIndex = 2;
             grpShips.TabStop = false;
             grpShips.Text = "Ships";
@@ -245,9 +261,9 @@
             grpBullets.FlatStyle = FlatStyle.Flat;
             grpBullets.Font = new Font("Stencil", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             grpBullets.ForeColor = Color.FromArgb(192, 255, 255);
-            grpBullets.Location = new Point(102, 358);
+            grpBullets.Location = new Point(49, 305);
             grpBullets.Name = "grpBullets";
-            grpBullets.Size = new Size(832, 252);
+            grpBullets.Size = new Size(392, 239);
             grpBullets.TabIndex = 3;
             grpBullets.TabStop = false;
             grpBullets.Text = "Bullets";
@@ -257,7 +273,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Stencil", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Yellow;
-            label4.Location = new Point(382, 202);
+            label4.Location = new Point(159, 180);
             label4.Name = "label4";
             label4.Size = new Size(69, 19);
             label4.TabIndex = 14;
@@ -268,7 +284,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Stencil", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Yellow;
-            label3.Location = new Point(671, 202);
+            label3.Location = new Point(294, 180);
             label3.Name = "label3";
             label3.Size = new Size(69, 19);
             label3.TabIndex = 11;
@@ -278,7 +294,7 @@
             // 
             lblBullet3.AutoSize = true;
             lblBullet3.Font = new Font("Stencil", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblBullet3.Location = new Point(638, 183);
+            lblBullet3.Location = new Point(261, 161);
             lblBullet3.Name = "lblBullet3";
             lblBullet3.Size = new Size(127, 19);
             lblBullet3.TabIndex = 13;
@@ -288,7 +304,7 @@
             // 
             lblBullet2.AutoSize = true;
             lblBullet2.Font = new Font("Stencil", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblBullet2.Location = new Point(357, 183);
+            lblBullet2.Location = new Point(134, 161);
             lblBullet2.Name = "lblBullet2";
             lblBullet2.Size = new Size(122, 19);
             lblBullet2.TabIndex = 12;
@@ -299,7 +315,7 @@
             label1lblBullet1.AutoSize = true;
             label1lblBullet1.Font = new Font("Stencil", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1lblBullet1.ForeColor = Color.FromArgb(128, 255, 255);
-            label1lblBullet1.Location = new Point(81, 183);
+            label1lblBullet1.Location = new Point(16, 162);
             label1lblBullet1.Name = "label1lblBullet1";
             label1lblBullet1.Size = new Size(112, 19);
             label1lblBullet1.TabIndex = 8;
@@ -309,31 +325,34 @@
             // 
             picBullet1.BackgroundImage = (Image)resources.GetObject("picBullet1.BackgroundImage");
             picBullet1.BackgroundImageLayout = ImageLayout.Center;
-            picBullet1.Location = new Point(81, 63);
+            picBullet1.Location = new Point(44, 42);
             picBullet1.Name = "picBullet1";
-            picBullet1.Size = new Size(112, 117);
+            picBullet1.Size = new Size(48, 117);
             picBullet1.TabIndex = 11;
             picBullet1.TabStop = false;
+            picBullet1.Click += picBullet1_Click;
             // 
             // picBullet3
             // 
             picBullet3.BackgroundImage = (Image)resources.GetObject("picBullet3.BackgroundImage");
             picBullet3.BackgroundImageLayout = ImageLayout.Stretch;
-            picBullet3.Location = new Point(638, 63);
+            picBullet3.Location = new Point(285, 42);
             picBullet3.Name = "picBullet3";
-            picBullet3.Size = new Size(112, 117);
+            picBullet3.Size = new Size(69, 117);
             picBullet3.TabIndex = 10;
             picBullet3.TabStop = false;
+            picBullet3.Click += picBullet3_Click;
             // 
             // picBullet2
             // 
             picBullet2.BackgroundImage = (Image)resources.GetObject("picBullet2.BackgroundImage");
             picBullet2.BackgroundImageLayout = ImageLayout.Stretch;
-            picBullet2.Location = new Point(357, 63);
+            picBullet2.Location = new Point(159, 41);
             picBullet2.Name = "picBullet2";
-            picBullet2.Size = new Size(112, 117);
+            picBullet2.Size = new Size(59, 117);
             picBullet2.TabIndex = 9;
             picBullet2.TabStop = false;
+            picBullet2.Click += picBullet2_Click;
             // 
             // btnBack
             // 
@@ -384,6 +403,138 @@
             lblCoinCount.Text = "123";
             lblCoinCount.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // grpTemplate
+            // 
+            grpTemplate.BackColor = Color.Transparent;
+            grpTemplate.BackgroundImageLayout = ImageLayout.Stretch;
+            grpTemplate.Controls.Add(lblPriceTem1);
+            grpTemplate.Controls.Add(lblPriceTem2);
+            grpTemplate.Controls.Add(lblTemplate2);
+            grpTemplate.Controls.Add(lblTem1);
+            grpTemplate.Controls.Add(pbTemplate2);
+            grpTemplate.Controls.Add(pbTemplate1);
+            grpTemplate.FlatStyle = FlatStyle.Flat;
+            grpTemplate.Font = new Font("Stencil", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            grpTemplate.ForeColor = Color.FromArgb(192, 255, 255);
+            grpTemplate.Location = new Point(447, 305);
+            grpTemplate.Name = "grpTemplate";
+            grpTemplate.Size = new Size(337, 239);
+            grpTemplate.TabIndex = 15;
+            grpTemplate.TabStop = false;
+            grpTemplate.Text = "Template";
+            // 
+            // lblPriceTem1
+            // 
+            lblPriceTem1.AutoSize = true;
+            lblPriceTem1.Font = new Font("Stencil", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPriceTem1.ForeColor = Color.Yellow;
+            lblPriceTem1.Location = new Point(49, 180);
+            lblPriceTem1.Name = "lblPriceTem1";
+            lblPriceTem1.Size = new Size(69, 19);
+            lblPriceTem1.TabIndex = 14;
+            lblPriceTem1.Text = "??????";
+            // 
+            // lblPriceTem2
+            // 
+            lblPriceTem2.AutoSize = true;
+            lblPriceTem2.Font = new Font("Stencil", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPriceTem2.ForeColor = Color.Yellow;
+            lblPriceTem2.Location = new Point(216, 180);
+            lblPriceTem2.Name = "lblPriceTem2";
+            lblPriceTem2.Size = new Size(69, 19);
+            lblPriceTem2.TabIndex = 11;
+            lblPriceTem2.Text = "??????";
+            // 
+            // lblTemplate2
+            // 
+            lblTemplate2.AutoSize = true;
+            lblTemplate2.Font = new Font("Stencil", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTemplate2.Location = new Point(193, 162);
+            lblTemplate2.Name = "lblTemplate2";
+            lblTemplate2.Size = new Size(107, 19);
+            lblTemplate2.TabIndex = 13;
+            lblTemplate2.Text = "Template2";
+            // 
+            // lblTem1
+            // 
+            lblTem1.AutoSize = true;
+            lblTem1.Font = new Font("Stencil", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTem1.Location = new Point(31, 161);
+            lblTem1.Name = "lblTem1";
+            lblTem1.Size = new Size(107, 19);
+            lblTem1.TabIndex = 12;
+            lblTem1.Text = "Template1";
+            // 
+            // pbTemplate2
+            // 
+            pbTemplate2.BackgroundImage = (Image)resources.GetObject("pbTemplate2.BackgroundImage");
+            pbTemplate2.BackgroundImageLayout = ImageLayout.Stretch;
+            pbTemplate2.Location = new Point(176, 42);
+            pbTemplate2.Name = "pbTemplate2";
+            pbTemplate2.Size = new Size(137, 117);
+            pbTemplate2.TabIndex = 10;
+            pbTemplate2.TabStop = false;
+            pbTemplate2.Click += pbTemplate2_Click;
+            // 
+            // pbTemplate1
+            // 
+            pbTemplate1.BackgroundImage = (Image)resources.GetObject("pbTemplate1.BackgroundImage");
+            pbTemplate1.BackgroundImageLayout = ImageLayout.Stretch;
+            pbTemplate1.Location = new Point(16, 41);
+            pbTemplate1.Name = "pbTemplate1";
+            pbTemplate1.Size = new Size(138, 117);
+            pbTemplate1.TabIndex = 9;
+            pbTemplate1.TabStop = false;
+            pbTemplate1.Click += pbTemplate1_Click;
+            // 
+            // grpExtra
+            // 
+            grpExtra.BackColor = Color.Transparent;
+            grpExtra.BackgroundImageLayout = ImageLayout.Stretch;
+            grpExtra.Controls.Add(lblPriceExtraHealth);
+            grpExtra.Controls.Add(lblExtra);
+            grpExtra.Controls.Add(pbExtraHealth);
+            grpExtra.FlatStyle = FlatStyle.Flat;
+            grpExtra.Font = new Font("Stencil", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            grpExtra.ForeColor = Color.FromArgb(192, 255, 255);
+            grpExtra.Location = new Point(802, 305);
+            grpExtra.Name = "grpExtra";
+            grpExtra.Size = new Size(200, 239);
+            grpExtra.TabIndex = 16;
+            grpExtra.TabStop = false;
+            grpExtra.Text = "Extra Health";
+            // 
+            // lblPriceExtraHealth
+            // 
+            lblPriceExtraHealth.AutoSize = true;
+            lblPriceExtraHealth.Font = new Font("Stencil", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPriceExtraHealth.ForeColor = Color.Yellow;
+            lblPriceExtraHealth.Location = new Point(63, 180);
+            lblPriceExtraHealth.Name = "lblPriceExtraHealth";
+            lblPriceExtraHealth.Size = new Size(69, 19);
+            lblPriceExtraHealth.TabIndex = 15;
+            lblPriceExtraHealth.Text = "??????";
+            // 
+            // lblExtra
+            // 
+            lblExtra.AutoSize = true;
+            lblExtra.Font = new Font("Stencil", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblExtra.Location = new Point(40, 162);
+            lblExtra.Name = "lblExtra";
+            lblExtra.Size = new Size(132, 19);
+            lblExtra.TabIndex = 16;
+            lblExtra.Text = "ExtraHealth";
+            // 
+            // pbExtraHealth
+            // 
+            pbExtraHealth.BackgroundImage = (Image)resources.GetObject("pbExtraHealth.BackgroundImage");
+            pbExtraHealth.BackgroundImageLayout = ImageLayout.Stretch;
+            pbExtraHealth.Location = new Point(28, 41);
+            pbExtraHealth.Name = "pbExtraHealth";
+            pbExtraHealth.Size = new Size(137, 117);
+            pbExtraHealth.TabIndex = 15;
+            pbExtraHealth.TabStop = false;
+            // 
             // Shop
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -391,6 +542,8 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1043, 711);
+            Controls.Add(grpExtra);
+            Controls.Add(grpTemplate);
             Controls.Add(lblCoinCount);
             Controls.Add(pictureBox1);
             Controls.Add(lblCoins);
@@ -414,6 +567,13 @@
             ((System.ComponentModel.ISupportInitialize)picBullet3).EndInit();
             ((System.ComponentModel.ISupportInitialize)picBullet2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            grpTemplate.ResumeLayout(false);
+            grpTemplate.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbTemplate2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbTemplate1).EndInit();
+            grpExtra.ResumeLayout(false);
+            grpExtra.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbExtraHealth).EndInit();
             ResumeLayout(false);
         }
 
@@ -446,5 +606,16 @@
         private Label lblPriceShip2;
         private Label label4;
         private Label label3;
+        private GroupBox grpTemplate;
+        private Label lblPriceTem1;
+        private Label lblPriceTem2;
+        private Label lblTemplate2;
+        private Label lblTem1;
+        private PictureBox pbTemplate2;
+        private PictureBox pbTemplate1;
+        private GroupBox grpExtra;
+        private PictureBox pbExtraHealth;
+        private Label lblPriceExtraHealth;
+        private Label lblExtra;
     }
 }

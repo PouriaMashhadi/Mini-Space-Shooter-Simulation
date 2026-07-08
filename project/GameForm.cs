@@ -8,9 +8,13 @@ namespace Project
 
              InitializeComponent();
 
+
+
             //Dynamic Sizing
             scaler = new FormScaler(this);
 
+
+            this.BackgroundImage = Image.FromFile(GameForm.Background_Themes_path);
 
             DoubleBuffered = true;
             GameTimer.Interval = 16; // 60fps
