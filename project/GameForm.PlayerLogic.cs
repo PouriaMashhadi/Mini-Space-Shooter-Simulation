@@ -20,7 +20,7 @@ namespace Project
         private void Shoot()
         {
             bullet tmp = new bullet(1, bulletHeight, bulletWidth, BulletSpeed);
-            tmp.X = player.X + (ShipWidth + bulletWidth) / 2;
+            tmp.X = player.X + (ShipWidth - bulletWidth) / 2;
             tmp.Y = player.Y - bulletHeight;
             bullet.allBullets.Add(tmp);
         }
@@ -45,5 +45,6 @@ namespace Project
         {
             if (player.HP_count == 0) GameOver = true;
         }
+        
     }
 }
