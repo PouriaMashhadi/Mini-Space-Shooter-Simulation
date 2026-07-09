@@ -1,3 +1,5 @@
+using Project.Database;
+
 namespace Project
 {
     internal static class Program
@@ -10,7 +12,8 @@ namespace Project
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
+            ApplicationConfiguration.Initialize(); 
+            DatabaseInitializer.Initialize();
             Application.Run(new MenuForm());
         }
     }

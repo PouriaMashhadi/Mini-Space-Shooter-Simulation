@@ -555,6 +555,7 @@
             Name = "Shop";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Shop";
+            Load += Shop_Load;
             grpShips.ResumeLayout(false);
             grpShips.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picShip1).EndInit();
