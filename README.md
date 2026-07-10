@@ -3,14 +3,12 @@
 - Pouria Mashhadi
 - Amir Mohammad Kaheh
 
-Acknowledgments
+# Acknowledgments
 
-This project was developed as a course assignment.
-
-
-Course: Advanced programming
-Instructor: Dr. Maleki Majd
-University: Iran University of Science and Technology
+- This project was developed as a course assignment.
+  - Course: Advanced programming
+  - Instructor: Dr. Maleki Majd
+  - University: Iran University of Science and Technology
 
 # Space Defender
 
