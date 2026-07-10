@@ -87,7 +87,7 @@ namespace Project
             //bg Music 
 
             AudioManager.PlayMusic(path);
-            
+
 
         }
         protected override void OnFormClosing(FormClosingEventArgs e)

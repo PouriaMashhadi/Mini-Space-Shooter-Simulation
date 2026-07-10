@@ -84,7 +84,6 @@ namespace Project
             gf.ShowDialog();
             this.Show();
             AudioManager.PlayMusic(path);
-
         }
 
 

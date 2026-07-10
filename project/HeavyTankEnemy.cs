@@ -25,14 +25,14 @@ namespace Project
         }
         private static void EnemyShoot(HeavyTankEnemy enemy, int EnemyWidth, int EnemyHeight, int BulletWidth, int BulletHeight, int BulletSpeed)
         {
-            EnemyBullet S = new EnemyBullet(enemy.X + EnemyWidth / 2, enemy.Y + EnemyHeight, BulletWidth, BulletHeight, BulletSpeed, "S");
-            EnemyBullet N = new EnemyBullet(enemy.X + EnemyWidth / 2, enemy.Y + EnemyHeight, BulletWidth, BulletHeight, BulletSpeed, "N");
-            EnemyBullet E = new EnemyBullet(enemy.X + EnemyWidth / 2, enemy.Y + EnemyHeight, BulletWidth, BulletHeight, BulletSpeed, "E");
-            EnemyBullet W = new EnemyBullet(enemy.X + EnemyWidth / 2, enemy.Y + EnemyHeight, BulletWidth, BulletHeight, BulletSpeed, "W");
-            EnemyBullet SW = new EnemyBullet(enemy.X + EnemyWidth / 2, enemy.Y + EnemyHeight, BulletWidth, BulletHeight, BulletSpeed, "SW");
-            EnemyBullet SE = new EnemyBullet(enemy.X + EnemyWidth / 2, enemy.Y + EnemyHeight, BulletWidth, BulletHeight, BulletSpeed, "SE");
-            EnemyBullet NE = new EnemyBullet(enemy.X + EnemyWidth / 2, enemy.Y + EnemyHeight, BulletWidth, BulletHeight, BulletSpeed, "NE");
-            EnemyBullet NW = new EnemyBullet(enemy.X + EnemyWidth / 2, enemy.Y + EnemyHeight, BulletWidth, BulletHeight, BulletSpeed, "NW");
+            EnemyBullet S = new EnemyBullet(enemy.X + (EnemyWidth - BulletWidth)/ 2, enemy.Y + EnemyHeight, BulletWidth, BulletHeight, BulletSpeed, "S");
+            EnemyBullet N = new EnemyBullet(enemy.X + (EnemyWidth - BulletWidth) / 2, enemy.Y + EnemyHeight, BulletWidth, BulletHeight, BulletSpeed, "N");
+            EnemyBullet E = new EnemyBullet(enemy.X + (EnemyWidth - BulletWidth) / 2, enemy.Y + EnemyHeight, BulletWidth, BulletHeight, BulletSpeed, "E");
+            EnemyBullet W = new EnemyBullet(enemy.X + (EnemyWidth - BulletWidth) / 2, enemy.Y + EnemyHeight, BulletWidth, BulletHeight, BulletSpeed, "W");
+            EnemyBullet SW = new EnemyBullet(enemy.X + (EnemyWidth - BulletWidth) / 2, enemy.Y + EnemyHeight, BulletWidth, BulletHeight, BulletSpeed, "SW");
+            EnemyBullet SE = new EnemyBullet(enemy.X + (EnemyWidth - BulletWidth) / 2, enemy.Y + EnemyHeight, BulletWidth, BulletHeight, BulletSpeed, "SE");
+            EnemyBullet NE = new EnemyBullet(enemy.X + (EnemyWidth - BulletWidth) / 2, enemy.Y + EnemyHeight, BulletWidth, BulletHeight, BulletSpeed, "NE");
+            EnemyBullet NW = new EnemyBullet(enemy.X + (EnemyWidth - BulletWidth) / 2, enemy.Y + EnemyHeight, BulletWidth, BulletHeight, BulletSpeed, "NW");
         }
         public HeavyTankEnemy(int w, int h, int Wave) : base(w, h)
         {

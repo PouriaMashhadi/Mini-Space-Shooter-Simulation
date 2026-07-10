@@ -24,14 +24,19 @@ namespace Project
             GameTimer.Interval = 16; // 60fps
             SetUp();
         }
-        int WaveCounter = 4;
+        int WaveCounter = 1;
         bool GameOver = false;
 
         private void SetUp()
         {
+            // reset objects
+            
+            ClearStage();
+
             // image init
             ImageSetUp();
             EnemyWaveSetUp(WaveCounter);
+
             //player init
             int hp = 3;
             if (does_have_ExtraLive) hp++;
@@ -53,7 +58,9 @@ namespace Project
                 FireRateHolder();
                 UpdateEnemies();
                 UpdateAllHitboxes();
-                bullet.MoveBullets();               
+                UpdateCoins();
+                bullet.MoveBullets(ClientSize.Width);
+                UpdatePowerUps();
                 if (CheckWaveStage())
                     EnemyWaveSetUp(++WaveCounter);
                 if (WaveCounter > 10) GameOver = true;

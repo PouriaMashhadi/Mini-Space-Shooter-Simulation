@@ -86,7 +86,7 @@ namespace Project
 
         private void SelectBullet(PictureBox pic)
         {
-            if (selectedBulletPic != null)selectedBulletPic.BackColor = Color.Transparent;
+            if (selectedBulletPic != null) selectedBulletPic.BackColor = Color.Transparent;
             selectedBulletPic = pic;
             selectedBulletPic.BackColor = SelectedColor;
         }
@@ -94,7 +94,7 @@ namespace Project
 
         private void SelectBackground(PictureBox pic)
         {
-            if (selectedBackgroundPic != null)selectedBackgroundPic.BackColor = Color.Transparent;
+            if (selectedBackgroundPic != null) selectedBackgroundPic.BackColor = Color.Transparent;
             selectedBackgroundPic = pic;
             selectedBackgroundPic.BackColor = SelectedColor;
         }
@@ -143,7 +143,7 @@ namespace Project
             foreach (var item in items)
             {
                 if (!item.Equipped) continue;
-                
+
                 switch (item.Category)
                 {
                     case ShopItem.ShopCategory.Ship:

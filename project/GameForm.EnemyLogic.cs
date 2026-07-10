@@ -27,26 +27,29 @@
             Check_bullet_Collision_withEnemy();
             Check_Enemy_Collision();
             Check_Player_Collision_withEnemyBullet();
-            ShooterEnemy.Shoot(SmallEnemyWidth, SmallEnemyHeight, bulletWidth, bulletHeight, BulletSpeed);
-            HeavyTankEnemy.Shoot(SmallEnemyWidth, SmallEnemyHeight, bulletWidth, bulletHeight, BulletSpeed);
+            ShooterEnemy.Shoot(SmallEnemyWidth, SmallEnemyHeight, bulletWidth, bulletHeight, (int)(BulletSpeed * 0.4));
+            HeavyTankEnemy.Shoot(SmallEnemyWidth * 2, SmallEnemyHeight, bulletWidth, bulletHeight, (int)(BulletSpeed * 0.4));
             EnemyBullet.MoveBullets(ClientSize.Height, ClientSize.Width);
         }
         private void Check_Enemy_Collision()
         {
             long now = DateTime.Now.Ticks;
-            foreach (var i in BaseC.AllObject)
+            for (int i = 0; i < Wave.Count; i++)
             {
-                if (i is Enemy)
+
+                if (player.Hitbox.IntersectsWith(Wave[i].Hitbox))
                 {
-                    if (player.Hitbox.IntersectsWith(i.Hitbox))
+                    GiveScore(Wave[i]);
+                    if (Wave[i] is ShooterEnemy) (Wave[i] as ShooterEnemy).Kill();
+                    if (Wave[i] is HeavyTankEnemy) (Wave[i] as HeavyTankEnemy).Kill();
+                    Wave.Remove(Wave[i]);
+                    
+                    if (now - PlayerLastDamageTacken > DamageImmunity)
                     {
-                        if (i is TerroristEnemy) Wave.Remove((i as Enemy));
-                        if (now - PlayerLastDamageTacken > DamageImmunity)
-                        {
-                            PlayerLastDamageTacken = now;
-                            Player_Take_damage();
-                        }
+                        PlayerLastDamageTacken = now;
+                        Player_Take_damage();
                     }
+                    i--;
                 }
             }
         }
@@ -59,12 +62,13 @@
                     if (bullet.allBullets[i].Hitbox.IntersectsWith(Wave[j].Hitbox))
                     {
                         bool check = Wave[j].TakeDamage(bulletDamage);
-                        if (Wave[j].TakeDamage(bulletDamage) == false)
+                        if (check == false) // killed
                         {
                             if (Wave[j] is ShooterEnemy)
                                 (Wave[j] as ShooterEnemy).Kill();
                             if (Wave[j] is HeavyTankEnemy)
                                 (Wave[j] as HeavyTankEnemy).Kill();
+                            GiveScore(Wave[j]);
                             Wave.Remove(Wave[j]);
                         }
                         bullet.allBullets.Remove(bullet.allBullets[i]);
@@ -93,6 +97,12 @@
 
             }
         }
-
+        private void GiveScore(Enemy enemy)
+        {
+            player.Score = enemy.Score;
+            MakePowerUp(enemy.X + SmallEnemyWidth - CoinWidth / 2, enemy.Y + SmallEnemyHeight);
+            if (enemy is HeavyTankEnemy) new Coin(enemy.X + SmallEnemyWidth - CoinWidth / 2, enemy.Y + SmallEnemyHeight, CoinWidth, CoinHeight, PlayerSpeed);
+            if (enemy is TerroristEnemy) new Coin(enemy.X + (SmallEnemyWidth - CoinWidth) / 2, enemy.Y + SmallEnemyHeight, CoinWidth, CoinHeight, PlayerSpeed);
+        }
     }
 }

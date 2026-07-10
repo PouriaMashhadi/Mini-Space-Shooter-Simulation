@@ -7,7 +7,7 @@ namespace Project
     internal class ShooterEnemy : Enemy
     {
         public static List<ShooterEnemy> allShooters = new List<ShooterEnemy>();
-        private static long EnemyFireRate = 2000 * TimeSpan.TicksPerMillisecond;
+        private static long EnemyFireRate = 4000 * TimeSpan.TicksPerMillisecond;
         public long lastShoot = 0;
 
         public static void Shoot(int EnemyWidth, int EnemyHeight, int BulletWidth, int BulletHeight, int BulletSpeed)
@@ -18,13 +18,9 @@ namespace Project
                 if (now > enemy.lastShoot + EnemyFireRate)
                 {
                     enemy.lastShoot = now;
-                    EnemyShoot(enemy, EnemyWidth, EnemyHeight, BulletWidth, BulletHeight, BulletSpeed);
+                    new EnemyBullet(enemy.X + (EnemyWidth - BulletWidth) / 2 + 1, enemy.Y + EnemyHeight, BulletWidth, BulletHeight, BulletSpeed, "S");
                 }
             }
-        }
-        private static void EnemyShoot(ShooterEnemy enemy, int EnemyWidth, int EnemyHeight, int BulletWidth, int BulletHeight, int BulletSpeed)
-        {
-            EnemyBullet tmp = new EnemyBullet(enemy.X + EnemyWidth / 2, enemy.Y + EnemyHeight, BulletWidth, BulletHeight, BulletSpeed, "S");
         }
 
         public ShooterEnemy(int w, int h, int Wave) : base(w, h)
