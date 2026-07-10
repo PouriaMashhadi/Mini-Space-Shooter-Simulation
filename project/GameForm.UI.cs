@@ -9,10 +9,10 @@ namespace Project
     {
         int bulletWidth = 20, bulletHeight = 20, ShipWidth = 100, ShipHeight = 100, SmallEnemyWidth = 30, SmallEnemyHeight = 30, CoinWidth = 40, CoinHeight = 40;
         int powerUpWidth = 30, powerUpHeight = 30;
-        Image ShipImage, BulletImage, Background, HPImage, StandardEnemyImage, EnemyBulletImage, CoinImage, TripleShotImage, ShieldImage, BoostImage;
+        Image ShipImage, BulletImage, Background, HPImage, StandardEnemyImage, EnemyBulletImage, CoinImage, TripleShotImage, ShieldImage, BoostImage, HpBuffImage;
         public static string Ship_skin_path = @"img\Spaceship.png", bullet_skin_path = @"img\EnemyBullet.png", Background_Themes_path = @"img\Options2.jpg";
         public string Standard_skin_path = @"img\Enemy.png", Enemy_Bullet_Path = @"img\EnemyBullet.png", Coin_Skin_path = @"img\Coin.png";
-        public string Triple_shot_path = @"img\", ExtraHealth_path = @"img\ExtraHealth.png", Boost_path = @"", Shield_path =@"img\Shield.png";
+        public string Triple_shot_path = @"img\Triple.png", ExtraHealth_path = @"img\ExtraHealth.png", Boost_path = @"img\Boost.png", Shield_path =@"img\Shield.png";
         private void ImageSetUp()
         {
             ShipImage = Image.FromFile(Ship_skin_path);
@@ -20,9 +20,10 @@ namespace Project
             StandardEnemyImage = Image.FromFile(Standard_skin_path);
             EnemyBulletImage = Image.FromFile(Enemy_Bullet_Path);
             CoinImage = Image.FromFile(Coin_Skin_path);
-            //TripleShotImage = Image.FromFile(Triple_shot_path);
+            TripleShotImage = Image.FromFile(Triple_shot_path);
             ShieldImage = Image.FromFile(Shield_path);
-            //BoostImage = Image.FromFile(Boost_path);
+            BoostImage = Image.FromFile(Boost_path);
+            HpBuffImage = Image.FromFile(ExtraHealth_path);
         }
 
 
@@ -61,15 +62,13 @@ namespace Project
             foreach(var i in PowerUp.allPowerUps)
             {
                 if (!i.Show) continue;
-                Color powerUp = new Color();
                 switch (i.PowerUpNumber)
                 {
-                    case 0: powerUp = Color.Aqua; break;
-                    case 1: powerUp = Color.White; break;
-                    case 2: powerUp = Color.Red; break;
-                    case 3: powerUp = Color.Green; break;
+                    case 0: e.Graphics.DrawImage(TripleShotImage, i.X, i.Y, powerUpWidth, powerUpHeight);  break;
+                    case 1: e.Graphics.DrawImage(ShieldImage, i.X, i.Y, powerUpWidth, powerUpHeight); break;
+                    case 2: e.Graphics.DrawImage(HpBuffImage, i.X, i.Y, powerUpWidth, powerUpHeight); break;
+                    case 3: e.Graphics.DrawImage(BoostImage, i.X, i.Y, powerUpWidth, powerUpHeight); break;
                 }
-                e.Graphics.DrawRectangle(new Pen(powerUp), i.X, i.Y, powerUpWidth, powerUpHeight);
             }
 
             //draw hit box
