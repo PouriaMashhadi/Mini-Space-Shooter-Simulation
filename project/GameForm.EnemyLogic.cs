@@ -59,7 +59,7 @@
                     if (bullet.allBullets[i].Hitbox.IntersectsWith(Wave[j].Hitbox))
                     {
                         bool check = Wave[j].TakeDamage(bulletDamage);
-                        if (Wave[j].TakeDamage(bulletDamage) == false)
+                        if (check == false) // killed
                         {
                             if (Wave[j] is ShooterEnemy)
                                 (Wave[j] as ShooterEnemy).Kill();
@@ -97,6 +97,7 @@
         private void GiveScore(Enemy enemy)
         {
             player.Score = enemy.Score;
+            MakePowerUp(enemy.X + SmallEnemyWidth - CoinWidth / 2, enemy.Y + SmallEnemyHeight);
             if (enemy is HeavyTankEnemy) new Coin(enemy.X + SmallEnemyWidth - CoinWidth / 2, enemy.Y + SmallEnemyHeight, CoinWidth, CoinHeight, PlayerSpeed);
             if (enemy is TerroristEnemy) new Coin(enemy.X + (SmallEnemyWidth - CoinWidth) / 2, enemy.Y + SmallEnemyHeight, CoinWidth, CoinHeight, PlayerSpeed);
         }

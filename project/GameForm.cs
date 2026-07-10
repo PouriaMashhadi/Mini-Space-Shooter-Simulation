@@ -35,7 +35,7 @@ namespace Project
             ShooterEnemy.allShooters.Clear();
             bullet.allBullets.Clear();
             EnemyBullet.AllBullets.Clear();
-            
+            PowerUp.allPowerUps.Clear();
 
             // image init
             ImageSetUp();
@@ -62,7 +62,8 @@ namespace Project
                 UpdateEnemies();
                 UpdateAllHitboxes();
                 UpdateCoins();
-                bullet.MoveBullets();               
+                bullet.MoveBullets(ClientSize.Width);
+                UpdatePowerUps();
                 if (CheckWaveStage())
                     EnemyWaveSetUp(++WaveCounter);
                 if (WaveCounter > 10) GameOver = true;
