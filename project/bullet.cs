@@ -11,30 +11,47 @@ namespace Project
 
 
         private int damage;
-        private int image_height;
+        private int image_height, image_width;
         private int speed;
+
+        private string direction;
         public int Damage { get => damage; set => damage = value; }
         public int Image_height { get => image_height; set => image_height = value; }
         public int Speed { get => speed; set => speed = value; }
 
-        public bullet(int damage, int height, int width, int speed) : base(-1, -1, width, height)
+        public bullet(float x, float y, int height, int width, int speed, string direction) : base(-1, -1, width, height)
         {
-            Damage = damage;
+            X = x;
+            Y = y;
             image_height = height;
+            image_width = width;
             this.speed = speed;
+            this.direction = direction;
+            allBullets.Add(this);
         }
-        private bool update()
+        private bool update(int right)
         {
-            if (Y + image_height <= 0) return false;
-            Y -= speed;
+
+            if (direction == "N") Y -= speed;
+            if (direction == "NE")
+            {
+                Y -= speed;
+                X -= speed;
+            }
+            if (direction == "NW")
+            {
+                X += speed;
+                Y-= speed;
+            }
+            if (Y + image_height <= 0 || X < 0 || X + image_width > right) return false;
             return true;
         }
-        public static void MoveBullets()
+        public static void MoveBullets(int right)
         {
 
             for (int i = 0; i < allBullets.Count; i++)
             {
-                if (allBullets[i].update() == false) allBullets.Remove(allBullets[i]);
+                if (allBullets[i].update(right) == false) allBullets.Remove(allBullets[i]);
                 else allBullets[i].UpdateHitbox();
             }
         }
