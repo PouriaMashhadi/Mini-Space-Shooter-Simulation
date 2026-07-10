@@ -56,9 +56,7 @@ namespace Project
         {
             pb.MouseEnter += (s, e) =>
             {
-                if (pb != selectedShipPic &&
-                    pb != selectedBulletPic &&
-                    pb != selectedBackgroundPic)
+                if (pb != selectedShipPic && pb != selectedBulletPic && pb != selectedBackgroundPic)
                 {
                     pb.BackColor = HoverColor;
                 }
@@ -67,25 +65,20 @@ namespace Project
 
             pb.MouseLeave += (s, e) =>
             {
-                if (pb != selectedShipPic &&
-                    pb != selectedBulletPic &&
-                    pb != selectedBackgroundPic)
+                if (pb != selectedShipPic && pb != selectedBulletPic && pb != selectedBackgroundPic)
                 {
                     pb.BackColor = Color.Transparent;
                 }
             };
 
 
-            pb.MouseEnter += (s, e) =>
-                AudioManager.PlaySFX(SFXType.ShopHover);
+            pb.MouseEnter += (s, e) => AudioManager.PlaySFX(SFXType.ShopHover);
         }
 
 
         private void SelectShip(PictureBox pic)
         {
-            if (selectedShipPic != null)
-                selectedShipPic.BackColor = Color.Transparent;
-
+            if (selectedShipPic != null) selectedShipPic.BackColor = Color.Transparent;
             selectedShipPic = pic;
             selectedShipPic.BackColor = SelectedColor;
         }
@@ -93,9 +86,7 @@ namespace Project
 
         private void SelectBullet(PictureBox pic)
         {
-            if (selectedBulletPic != null)
-                selectedBulletPic.BackColor = Color.Transparent;
-
+            if (selectedBulletPic != null)selectedBulletPic.BackColor = Color.Transparent;
             selectedBulletPic = pic;
             selectedBulletPic.BackColor = SelectedColor;
         }
@@ -103,31 +94,21 @@ namespace Project
 
         private void SelectBackground(PictureBox pic)
         {
-            if (selectedBackgroundPic != null)
-                selectedBackgroundPic.BackColor = Color.Transparent;
-
+            if (selectedBackgroundPic != null)selectedBackgroundPic.BackColor = Color.Transparent;
             selectedBackgroundPic = pic;
             selectedBackgroundPic.BackColor = SelectedColor;
         }
-
-
         private void SelectItem(int itemId, PictureBox pictureBox)
         {
             ShopItem? item = shopRepository.GetItemById(itemId);
-
             if (item == null)
                 return;
-
-
             if (!item.Purchased)
             {
                 MessageBox.Show("Not Purchased yet.");
                 return;
             }
-
-
             shopRepository.EquipItem(item.Id, item.Category);
-
 
             switch (item.Category)
             {
@@ -155,20 +136,14 @@ namespace Project
                     break;
             }
         }
-
-
-
         private void LoadEquippedItems()
         {
             var items = shopRepository.GetAllItems();
 
-
             foreach (var item in items)
             {
-                if (!item.Equipped)
-                    continue;
-
-
+                if (!item.Equipped) continue;
+                
                 switch (item.Category)
                 {
                     case ShopItem.ShopCategory.Ship:
@@ -186,9 +161,7 @@ namespace Project
 
                         else if (item.Id == 4)
                             SelectShip(picShip4);
-
                         break;
-
 
 
                     case ShopItem.ShopCategory.Bullet:

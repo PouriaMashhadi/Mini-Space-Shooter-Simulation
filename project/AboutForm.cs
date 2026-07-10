@@ -55,7 +55,7 @@ namespace Project
             {
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
                 {
-                    FileName = "https://linkedin.com/in/pouria-mashhadi",
+                    FileName = "https://www.linkedin.com/in/amir-mohamed-kaheh-81aa28420?utm_source=share_via&utm_content=profile&utm_medium=member_android",
                     UseShellExecute = true
                 });
             };
@@ -73,7 +73,7 @@ namespace Project
             {
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
                 {
-                    FileName = "https://github.com/PouriaMashhadi",
+                    FileName = "https://github.com/amir-haastaam",
                     UseShellExecute = true
                 });
             };

@@ -5,7 +5,7 @@ namespace Project
 {
     internal class PlayerRepository
     {
-        public PlayerData GetPlayer()
+        public PlayerData? GetPlayer()
         {
             using SQLiteConnection connection = DatabaseManager.GetConnection();
 
@@ -13,20 +13,18 @@ namespace Project
 
             string query = "SELECT * FROM Player WHERE Id = 1";
 
-            SQLiteCommand command = new SQLiteCommand(query, connection);
-
-            SQLiteDataReader reader = command.ExecuteReader();
+            using SQLiteCommand command = new SQLiteCommand(query, connection);
+            using SQLiteDataReader reader = command.ExecuteReader();
 
             if (reader.Read())
             {
-                PlayerData player = new PlayerData();
-
-                player.Id = Convert.ToInt32(reader["Id"]);
-                player.Coins = Convert.ToInt32(reader["Coins"]);
-                player.HighScore = Convert.ToInt32(reader["HighScore"]);
-                player.ExtraLife = Convert.ToInt32(reader["ExtraLife"]);
-
-                return player;
+                return new PlayerData
+                {
+                    Id = Convert.ToInt32(reader["Id"]),
+                    Coins = Convert.ToInt32(reader["Coins"]),
+                    HighScore = Convert.ToInt32(reader["HighScore"]),
+                    ExtraLife = Convert.ToInt32(reader["ExtraLife"])
+                };
             }
 
             return null;
