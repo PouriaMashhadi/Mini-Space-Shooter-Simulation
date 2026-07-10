@@ -51,7 +51,7 @@ namespace Project
         private void UpdatePowerUps()
         {
 
-            foreach (var i in PowerUp.allPowerUps) i.Update(PlayerSpeed);
+            foreach (var i in PowerUp.allPowerUps) i.Update((int)(PlayerSpeed * 0.6));
             Check_Collision();
             label1.Text = PowerUp.allPowerUps.Count.ToString();
             for (int i = 0; i < PowerUp.allPowerUps.Count; i++)

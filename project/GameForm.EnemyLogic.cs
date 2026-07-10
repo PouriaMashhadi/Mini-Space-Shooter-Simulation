@@ -27,8 +27,8 @@
             Check_bullet_Collision_withEnemy();
             Check_Enemy_Collision();
             Check_Player_Collision_withEnemyBullet();
-            ShooterEnemy.Shoot(SmallEnemyWidth, SmallEnemyHeight, bulletWidth, bulletHeight, BulletSpeed);
-            HeavyTankEnemy.Shoot(SmallEnemyWidth * 2, SmallEnemyHeight, bulletWidth, bulletHeight, BulletSpeed);
+            ShooterEnemy.Shoot(SmallEnemyWidth, SmallEnemyHeight, bulletWidth, bulletHeight, (int)(BulletSpeed * 0.4));
+            HeavyTankEnemy.Shoot(SmallEnemyWidth * 2, SmallEnemyHeight, bulletWidth, bulletHeight, (int)(BulletSpeed * 0.4));
             EnemyBullet.MoveBullets(ClientSize.Height, ClientSize.Width);
         }
         private void Check_Enemy_Collision()
@@ -40,7 +40,10 @@
                 if (player.Hitbox.IntersectsWith(Wave[i].Hitbox))
                 {
                     GiveScore(Wave[i]);
+                    if (Wave[i] is ShooterEnemy) (Wave[i] as ShooterEnemy).Kill();
+                    if (Wave[i] is HeavyTankEnemy) (Wave[i] as HeavyTankEnemy).Kill();
                     Wave.Remove(Wave[i]);
+                    
                     if (now - PlayerLastDamageTacken > DamageImmunity)
                     {
                         PlayerLastDamageTacken = now;

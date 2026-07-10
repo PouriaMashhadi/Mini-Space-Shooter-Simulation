@@ -30,16 +30,13 @@ namespace Project
         private void SetUp()
         {
             // reset objects
-            BaseC.AllObject.Clear();
-            HeavyTankEnemy.allShooters.Clear();
-            ShooterEnemy.allShooters.Clear();
-            bullet.allBullets.Clear();
-            EnemyBullet.AllBullets.Clear();
-            PowerUp.allPowerUps.Clear();
+            
+            ClearStage();
 
             // image init
             ImageSetUp();
             EnemyWaveSetUp(WaveCounter);
+
             //player init
             int hp = 3;
             if (does_have_ExtraLive) hp++;

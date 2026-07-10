@@ -35,7 +35,6 @@
             lblHP = new Label();
             lblWave = new Label();
             lblHPTitle = new Label();
-            label1 = new Label();
             SuspendLayout();
             // 
             // GameTimer
@@ -92,15 +91,6 @@
             lblHPTitle.TabIndex = 3;
             lblHPTitle.Text = "HP";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(1059, 99);
-            label1.Name = "label1";
-            label1.Size = new Size(59, 25);
-            label1.TabIndex = 4;
-            label1.Text = "label1";
-            // 
             // GameForm
             // 
             AutoScaleDimensions = new SizeF(144F, 144F);
@@ -108,7 +98,6 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1200, 498);
-            Controls.Add(label1);
             Controls.Add(lblHPTitle);
             Controls.Add(lblWave);
             Controls.Add(lblHP);
@@ -131,6 +120,5 @@
         private Label lblHP;
         private Label lblWave;
         private Label lblHPTitle;
-        private Label label1;
     }
 }

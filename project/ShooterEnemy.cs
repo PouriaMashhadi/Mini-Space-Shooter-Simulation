@@ -7,7 +7,7 @@ namespace Project
     internal class ShooterEnemy : Enemy
     {
         public static List<ShooterEnemy> allShooters = new List<ShooterEnemy>();
-        private static long EnemyFireRate = 2000 * TimeSpan.TicksPerMillisecond;
+        private static long EnemyFireRate = 4000 * TimeSpan.TicksPerMillisecond;
         public long lastShoot = 0;
 
         public static void Shoot(int EnemyWidth, int EnemyHeight, int BulletWidth, int BulletHeight, int BulletSpeed)
