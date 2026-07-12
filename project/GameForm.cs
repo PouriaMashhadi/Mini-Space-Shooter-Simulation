@@ -105,8 +105,13 @@ namespace Project
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            base.OnFormClosing(e);
+            PlayerRepository repository = new PlayerRepository();
+
+            repository.SaveGame(player.Coin, player.Score);
+
             AudioManager.StopMusic();
+
+            base.OnFormClosing(e);
         }
     }
 }

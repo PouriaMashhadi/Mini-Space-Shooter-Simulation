@@ -54,5 +54,20 @@ namespace Project
 
             command.ExecuteNonQuery();
         }
+
+        public void SaveGame(int earnedCoins, int score)
+        {
+            PlayerData? player = GetPlayer();
+
+            if (player == null)
+                return;
+
+            player.Coins += earnedCoins;
+
+            if (score > player.HighScore)
+                player.HighScore = score;
+
+            UpdatePlayer(player);
+        }
     }
 }

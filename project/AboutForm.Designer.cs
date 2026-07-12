@@ -107,7 +107,7 @@
             lblEmail2.RightToLeft = RightToLeft.No;
             lblEmail2.Size = new Size(325, 40);
             lblEmail2.TabIndex = 8;
-            lblEmail2.Text = "Email: amirmohammadwk@gmail.com";
+            lblEmail2.Text = "Email: amirkahehwk@gmail.com";
             lblEmail2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lnkLinkedIn2

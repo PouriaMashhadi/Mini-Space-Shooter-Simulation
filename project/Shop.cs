@@ -198,6 +198,33 @@ namespace Project
             }
         }
 
+        private void BuyItem(int itemId)
+        {
+            ShopItem? item = shopRepository.GetItemById(itemId);
+
+            if (item == null)
+                return;
+
+            if (item.Purchased)
+            {
+                MessageBox.Show("Item already purchased.");
+                return;
+            }
+
+            if (player.Coins < item.Price)
+            {
+                MessageBox.Show("Not enough coins.");
+                return;
+            }
+
+            player.Coins -= item.Price;
+
+            playerRepository.UpdatePlayer(player);
+
+            shopRepository.BuyItem(item.Id);
+
+            MessageBox.Show("Purchase successful.");
+        }
 
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -210,24 +237,31 @@ namespace Project
         private void picShip1_Click(object sender, EventArgs e)
         {
             SelectItem(1, picShip1);
+            BuyItem(1);
         }
 
 
         private void picShip2_Click(object sender, EventArgs e)
         {
             SelectItem(2, picShip2);
+            BuyItem(2);
+
         }
 
 
         private void picShip3_Click(object sender, EventArgs e)
         {
             SelectItem(3, picShip3);
+            BuyItem(3);
+
         }
 
 
         private void picShip4_Click(object sender, EventArgs e)
         {
             SelectItem(4, picShip4);
+            BuyItem(4);
+
         }
 
 
@@ -235,18 +269,23 @@ namespace Project
         private void picBullet1_Click(object sender, EventArgs e)
         {
             SelectItem(5, picBullet1);
+            BuyItem(5);
         }
 
 
         private void picBullet2_Click(object sender, EventArgs e)
         {
             SelectItem(6, picBullet2);
+            BuyItem(6);
+
         }
 
 
         private void picBullet3_Click(object sender, EventArgs e)
         {
             SelectItem(7, picBullet3);
+            BuyItem(7);
+
         }
 
 
@@ -254,12 +293,16 @@ namespace Project
         private void pbTemplate1_Click(object sender, EventArgs e)
         {
             SelectItem(8, pbTemplate1);
+            BuyItem(8);
+
         }
 
 
         private void pbTemplate2_Click(object sender, EventArgs e)
         {
             SelectItem(9, pbTemplate2);
+            BuyItem(9);
+
         }
 
 
