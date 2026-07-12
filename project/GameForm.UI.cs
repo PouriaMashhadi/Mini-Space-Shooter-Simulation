@@ -11,7 +11,7 @@ namespace Project
         int powerUpWidth = 30, powerUpHeight = 30;
         Image ShipImage, BulletImage, Background, HPImage, StandardEnemyImage, EnemyBulletImage, CoinImage, TripleShotImage, ShieldImage, BoostImage, HpBuffImage;
         public static string Ship_skin_path = @"img\Spaceship.png", bullet_skin_path = @"img\EnemyBullet.png", Background_Themes_path = @"img\Options2.jpg";
-        public string Standard_skin_path = @"img\Enemy.png", Enemy_Bullet_Path = @"img\EnemyBullet.png", Coin_Skin_path = @"img\Coin.png";
+        public string Standard_skin_path = @"img\Enemy.png", Enemy_Bullet_Path = @"img\EnemyBullet.png", Coin_Skin_path = @"img\Coins.png";
         public string Triple_shot_path = @"img\Triple.png", ExtraHealth_path = @"img\ExtraHealth.png", Boost_path = @"img\Boost.png", Shield_path =@"img\Shield.png";
         private void ImageSetUp()
         {

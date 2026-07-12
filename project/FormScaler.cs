@@ -63,6 +63,7 @@ namespace Project
 
         private void ResizeControls(Control parent, float scaleX, float scaleY)
         {
+            if(form.WindowState== FormWindowState.Minimized) return;
             foreach (Control c in parent.Controls)
             {
                 ControlData data = controls[c];

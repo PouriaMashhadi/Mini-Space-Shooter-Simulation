@@ -48,11 +48,12 @@ namespace Project
         {
             if (GameOver)
             {
+                AudioManager.PlaySFX(SFXType.GameOver);
 
             }
             else
             {
-                //PlayerDeath();
+                PlayerDeath();
                 lblHP.Text = player.HP_count.ToString();
                 player.Move(ClientSize.Width, ClientSize.Height);
                 FireRateHolder();
@@ -110,7 +111,7 @@ namespace Project
             repository.SaveGame(player.Coin, player.Score);
 
             AudioManager.StopMusic();
-
+            AudioManager.StopSFX();
             base.OnFormClosing(e);
         }
     }
