@@ -51,13 +51,11 @@ namespace Project
                     Wave = new List<Enemy> { new HeavyTankEnemy(SmallEnemyWidth * 2, SmallEnemyHeight, WaveCounter) };
                     SpawnEnemy(1);
                     break;
-
             }
 
         }
         private bool CheckWaveStage()
         {
-
             if (Wave.Count == 0)
             {
                 lblStageCounter.Text = $"{WaveCounter + 1}";
@@ -73,6 +71,7 @@ namespace Project
             EnemyBullet.AllBullets.Clear();
             bullet.allBullets.Clear();
             PowerUp.allPowerUps.Clear();
+            WaveCounter = 1;
         }
     }
 }

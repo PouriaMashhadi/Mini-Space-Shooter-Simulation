@@ -24,19 +24,18 @@ namespace Project
             GameTimer.Interval = 16; // 60fps
             SetUp();
         }
-        int WaveCounter = 1;
+        int WaveCounter;
         bool GameOver = false;
 
         private void SetUp()
         {
             // reset objects
-            
             ClearStage();
 
             // image init
             ImageSetUp();
             EnemyWaveSetUp(WaveCounter);
-
+            GameTimer.Enabled = true;
             //player init
             int hp = 3;
             if (does_have_ExtraLive) hp++;
@@ -105,6 +104,8 @@ namespace Project
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
+            ClearStage();
+            GameTimer.Enabled = false;
             PlayerRepository repository = new PlayerRepository();
 
             repository.SaveGame(player.Coin, player.Score);

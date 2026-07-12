@@ -39,7 +39,6 @@
             // 
             // GameTimer
             // 
-            GameTimer.Enabled = true;
             GameTimer.Tick += GameTick;
             // 
             // lblStageCounter
