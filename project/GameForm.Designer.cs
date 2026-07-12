@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameForm));
             GameTimer = new System.Windows.Forms.Timer(components);
             lblStageCounter = new Label();
             lblHP = new Label();
             lblWave = new Label();
             lblHPTitle = new Label();
+            lblScore = new Label();
+            lblScoreCounter = new Label();
             SuspendLayout();
             // 
             // GameTimer
@@ -47,9 +48,10 @@
             lblStageCounter.BackColor = Color.Transparent;
             lblStageCounter.Font = new Font("Snap ITC", 18F, FontStyle.Italic, GraphicsUnit.Point, 0);
             lblStageCounter.ForeColor = Color.OrangeRed;
-            lblStageCounter.Location = new Point(1080, 10);
+            lblStageCounter.Location = new Point(720, 7);
+            lblStageCounter.Margin = new Padding(2, 0, 2, 0);
             lblStageCounter.Name = "lblStageCounter";
-            lblStageCounter.Size = new Size(38, 46);
+            lblStageCounter.Size = new Size(26, 31);
             lblStageCounter.TabIndex = 0;
             lblStageCounter.Text = "1";
             // 
@@ -59,9 +61,10 @@
             lblHP.BackColor = Color.Transparent;
             lblHP.Font = new Font("Snap ITC", 15.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
             lblHP.ForeColor = Color.Red;
-            lblHP.Location = new Point(177, 15);
+            lblHP.Location = new Point(118, 10);
+            lblHP.Margin = new Padding(2, 0, 2, 0);
             lblHP.Name = "lblHP";
-            lblHP.Size = new Size(119, 42);
+            lblHP.Size = new Size(78, 27);
             lblHP.TabIndex = 1;
             lblHP.Text = "label1";
             // 
@@ -71,10 +74,9 @@
             lblWave.BackColor = Color.Transparent;
             lblWave.Font = new Font("Snap ITC", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblWave.ForeColor = Color.OrangeRed;
-            lblWave.Location = new Point(956, 21);
-            lblWave.Margin = new Padding(4, 0, 4, 0);
+            lblWave.Location = new Point(637, 14);
             lblWave.Name = "lblWave";
-            lblWave.Size = new Size(113, 31);
+            lblWave.Size = new Size(78, 22);
             lblWave.TabIndex = 2;
             lblWave.Text = "Wave :";
             // 
@@ -84,24 +86,54 @@
             lblHPTitle.BackColor = Color.Transparent;
             lblHPTitle.Font = new Font("Snap ITC", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblHPTitle.ForeColor = Color.Red;
-            lblHPTitle.Location = new Point(112, 24);
+            lblHPTitle.Location = new Point(75, 16);
+            lblHPTitle.Margin = new Padding(2, 0, 2, 0);
             lblHPTitle.Name = "lblHPTitle";
-            lblHPTitle.Size = new Size(56, 31);
+            lblHPTitle.Size = new Size(39, 22);
             lblHPTitle.TabIndex = 3;
             lblHPTitle.Text = "HP";
             // 
+            // lblScore
+            // 
+            lblScore.AutoSize = true;
+            lblScore.BackColor = Color.Transparent;
+            lblScore.Font = new Font("Snap ITC", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblScore.ForeColor = Color.OrangeRed;
+            lblScore.Location = new Point(637, 36);
+            lblScore.Name = "lblScore";
+            lblScore.Size = new Size(73, 22);
+            lblScore.TabIndex = 4;
+            lblScore.Text = "Score:";
+            // 
+            // lblScoreCounter
+            // 
+            lblScoreCounter.AutoSize = true;
+            lblScoreCounter.BackColor = Color.Transparent;
+            lblScoreCounter.Font = new Font("Snap ITC", 18F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            lblScoreCounter.ForeColor = Color.OrangeRed;
+            lblScoreCounter.Location = new Point(720, 36);
+            lblScoreCounter.Margin = new Padding(2, 0, 2, 0);
+            lblScoreCounter.Name = "lblScoreCounter";
+            lblScoreCounter.Size = new Size(26, 31);
+            lblScoreCounter.TabIndex = 5;
+            lblScoreCounter.Text = "1";
+            // 
             // GameForm
             // 
-            AutoScaleDimensions = new SizeF(144F, 144F);
+            AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            AutoSize = true;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1200, 498);
+            ClientSize = new Size(800, 332);
+            Controls.Add(lblScoreCounter);
+            Controls.Add(lblScore);
             Controls.Add(lblHPTitle);
             Controls.Add(lblWave);
             Controls.Add(lblHP);
             Controls.Add(lblStageCounter);
             KeyPreview = true;
+            Margin = new Padding(2);
+            MinimumSize = new Size(10, 10);
             Name = "GameForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Game";
@@ -119,5 +151,7 @@
         private Label lblHP;
         private Label lblWave;
         private Label lblHPTitle;
+        private Label lblScore;
+        private Label lblScoreCounter;
     }
 }

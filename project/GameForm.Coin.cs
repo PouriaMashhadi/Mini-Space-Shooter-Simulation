@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Properties;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -18,6 +19,7 @@ namespace Project
                     {
                         BaseC.AllObject.Remove(tmp);
                         player.Coin++;
+                        AudioManager.PlaySFX(SFXType.Collect);
                         i--;
                     }
                 }

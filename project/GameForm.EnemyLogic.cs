@@ -1,4 +1,6 @@
-﻿namespace Project
+﻿using Project.Properties;
+
+namespace Project
 {
     public partial class GameForm : Form
     {
@@ -76,6 +78,7 @@
                         bool check = Wave[j].TakeDamage(bulletDamage);
                         if (check == false) // killed
                         {
+                            AudioManager.PlaySFX(SFXType.Explosion);
                             if (Wave[j] is ShooterEnemy)
                                 (Wave[j] as ShooterEnemy).Kill();
                             if (Wave[j] is HeavyTankEnemy)

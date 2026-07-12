@@ -26,7 +26,7 @@ namespace Project
         }
         int WaveCounter;
         bool GameOver = false;
-
+        bool Win = false;
         private void SetUp()
         {
             // reset objects
@@ -47,12 +47,25 @@ namespace Project
         {
             if (GameOver)
             {
-
+                GameTimer.Stop();
+                AudioManager.PlaySFX(SFXType.GameOver);
+                MessageBox.Show("Game Over!\nTry again Later.");
+                this.Close();
+                return;
+            }
+            if (Win)
+            {
+                GameTimer.Stop();
+                AudioManager.PlaySFX(SFXType.Winner);
+                MessageBox.Show("Winnnnnnnnnnnnnnnnneeeeeeeeeeeeeeerrrrrrrrrrr !\n.");
+                this.Close();
+                return ;
             }
             else
             {
-                //PlayerDeath();
+                PlayerDeath();
                 lblHP.Text = player.HP_count.ToString();
+                lblScoreCounter.Text=player.Score.ToString();
                 player.Move(ClientSize.Width, ClientSize.Height);
                 FireRateHolder();
                 UpdateEnemies();
@@ -62,12 +75,25 @@ namespace Project
                 UpdatePowerUps();
                 if (CheckWaveStage())
                     EnemyWaveSetUp(++WaveCounter);
-                if (WaveCounter > 10) GameOver = true;
+                if (WaveCounter > 10) Win = true;
                 Invalidate();
             }
         }
         private void KeyDown_GameForm(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Escape)
+            {
+                var result = MessageBox.Show(
+                    "Are You Sure You Want to Quit? coins and score will be saved but you need to start again!",
+                    "Exit",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Question);
+
+                if (result == DialogResult.OK)
+                    this.Close();
+
+                return; 
+            }
 
             if (e.KeyCode == Keys.W)
             {
@@ -111,7 +137,7 @@ namespace Project
             repository.SaveGame(player.Coin, player.Score);
 
             AudioManager.StopMusic();
-
+            AudioManager.StopSFX();
             base.OnFormClosing(e);
         }
     }

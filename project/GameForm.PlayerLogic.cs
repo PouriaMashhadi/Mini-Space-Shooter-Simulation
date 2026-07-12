@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Properties;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -24,10 +25,11 @@ namespace Project
                 new bullet(player.X + (ShipWidth - bulletWidth) / 2, player.Y - bulletHeight, bulletHeight, bulletWidth, BulletSpeed, "N");
                 new bullet(player.X + (ShipWidth - bulletWidth) / 2, player.Y - bulletHeight, bulletHeight, bulletWidth, BulletSpeed, "NE");
                 new bullet(player.X + (ShipWidth - bulletWidth) / 2, player.Y - bulletHeight, bulletHeight, bulletWidth, BulletSpeed, "NW");
-
             }
             else
                 new bullet(player.X + (ShipWidth - bulletWidth) / 2, player.Y - bulletHeight, bulletHeight, bulletWidth, BulletSpeed, "N");
+                AudioManager.PlaySFX(SFXType.Shoot);
+
         }
         private void FireRateHolder()
         {
@@ -50,7 +52,11 @@ namespace Project
         }
         private void PlayerDeath()
         {
-            if (player.HP_count == 0) GameOver = true;
+            if (player.HP_count == 0) 
+            {
+                GameOver = true;
+
+            }
         }
 
     }
