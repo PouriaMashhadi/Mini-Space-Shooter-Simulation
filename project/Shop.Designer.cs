@@ -32,6 +32,7 @@
             lblTitle = new Label();
             pnlDivider = new Panel();
             grpShips = new GroupBox();
+            lblPriceShip1 = new Label();
             lblPriceShip4 = new Label();
             lblPriceShip3 = new Label();
             lblPriceShip2 = new Label();
@@ -44,8 +45,9 @@
             picShip3 = new PictureBox();
             picShip4 = new PictureBox();
             grpBullets = new GroupBox();
-            label4 = new Label();
-            label3 = new Label();
+            lblPriceBullet1 = new Label();
+            lblPriceBullet2 = new Label();
+            lblPriceBullet3 = new Label();
             lblBullet3 = new Label();
             lblBullet2 = new Label();
             label1lblBullet1 = new Label();
@@ -107,6 +109,7 @@
             // grpShips
             // 
             grpShips.BackColor = Color.Transparent;
+            grpShips.Controls.Add(lblPriceShip1);
             grpShips.Controls.Add(lblPriceShip4);
             grpShips.Controls.Add(lblPriceShip3);
             grpShips.Controls.Add(lblPriceShip2);
@@ -127,6 +130,17 @@
             grpShips.TabIndex = 2;
             grpShips.TabStop = false;
             grpShips.Text = "Ships";
+            // 
+            // lblPriceShip1
+            // 
+            lblPriceShip1.AutoSize = true;
+            lblPriceShip1.Font = new Font("Stencil", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPriceShip1.ForeColor = Color.Yellow;
+            lblPriceShip1.Location = new Point(76, 182);
+            lblPriceShip1.Name = "lblPriceShip1";
+            lblPriceShip1.Size = new Size(69, 19);
+            lblPriceShip1.TabIndex = 16;
+            lblPriceShip1.Text = "??????";
             // 
             // lblPriceShip4
             // 
@@ -250,8 +264,9 @@
             // 
             grpBullets.BackColor = Color.Transparent;
             grpBullets.BackgroundImageLayout = ImageLayout.Stretch;
-            grpBullets.Controls.Add(label4);
-            grpBullets.Controls.Add(label3);
+            grpBullets.Controls.Add(lblPriceBullet1);
+            grpBullets.Controls.Add(lblPriceBullet2);
+            grpBullets.Controls.Add(lblPriceBullet3);
             grpBullets.Controls.Add(lblBullet3);
             grpBullets.Controls.Add(lblBullet2);
             grpBullets.Controls.Add(label1lblBullet1);
@@ -268,27 +283,38 @@
             grpBullets.TabStop = false;
             grpBullets.Text = "Bullets";
             // 
-            // label4
+            // lblPriceBullet1
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Stencil", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.Yellow;
-            label4.Location = new Point(159, 180);
-            label4.Name = "label4";
-            label4.Size = new Size(69, 19);
-            label4.TabIndex = 14;
-            label4.Text = "??????";
+            lblPriceBullet1.AutoSize = true;
+            lblPriceBullet1.Font = new Font("Stencil", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPriceBullet1.ForeColor = Color.Yellow;
+            lblPriceBullet1.Location = new Point(36, 181);
+            lblPriceBullet1.Name = "lblPriceBullet1";
+            lblPriceBullet1.Size = new Size(69, 19);
+            lblPriceBullet1.TabIndex = 15;
+            lblPriceBullet1.Text = "??????";
             // 
-            // label3
+            // lblPriceBullet2
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Stencil", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.Yellow;
-            label3.Location = new Point(294, 180);
-            label3.Name = "label3";
-            label3.Size = new Size(69, 19);
-            label3.TabIndex = 11;
-            label3.Text = "??????";
+            lblPriceBullet2.AutoSize = true;
+            lblPriceBullet2.Font = new Font("Stencil", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPriceBullet2.ForeColor = Color.Yellow;
+            lblPriceBullet2.Location = new Point(159, 180);
+            lblPriceBullet2.Name = "lblPriceBullet2";
+            lblPriceBullet2.Size = new Size(69, 19);
+            lblPriceBullet2.TabIndex = 14;
+            lblPriceBullet2.Text = "??????";
+            // 
+            // lblPriceBullet3
+            // 
+            lblPriceBullet3.AutoSize = true;
+            lblPriceBullet3.Font = new Font("Stencil", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPriceBullet3.ForeColor = Color.Yellow;
+            lblPriceBullet3.Location = new Point(294, 180);
+            lblPriceBullet3.Name = "lblPriceBullet3";
+            lblPriceBullet3.Size = new Size(69, 19);
+            lblPriceBullet3.TabIndex = 11;
+            lblPriceBullet3.Text = "??????";
             // 
             // lblBullet3
             // 
@@ -605,8 +631,8 @@
         private Label lblPriceShip4;
         private Label lblPriceShip3;
         private Label lblPriceShip2;
-        private Label label4;
-        private Label label3;
+        private Label lblPriceBullet2;
+        private Label lblPriceBullet3;
         private GroupBox grpTemplate;
         private Label lblPriceTem1;
         private Label lblPriceTem2;
@@ -618,5 +644,7 @@
         private PictureBox pbExtraHealth;
         private Label lblPriceExtraHealth;
         private Label lblExtra;
+        private Label lblPriceShip1;
+        private Label lblPriceBullet1;
     }
 }

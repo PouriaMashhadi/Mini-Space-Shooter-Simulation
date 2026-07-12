@@ -224,7 +224,35 @@ namespace Project
             shopRepository.BuyItem(item.Id);
 
             MessageBox.Show("Purchase successful.");
+            UpdatePurchaseLabels();
         }
+
+
+        private void UpdatePurchaseLabels()
+        {
+            var items = shopRepository.GetAllItems();
+
+            foreach (var item in items)
+            {
+                string status = item.Purchased ? "Purchased" : $"{item.Price} Coins";
+
+                switch (item.Id)
+                {
+                    case 1: lblPriceShip1.Text = status; break;
+                    case 2: lblPriceShip2.Text = status; break;
+                    case 3: lblPriceShip3.Text = status; break;
+                    case 4: lblPriceShip4.Text = status; break;
+
+                    case 5: lblPriceBullet1.Text = status; break;
+                    case 6: lblPriceBullet2.Text = status; break;
+                    case 7: lblPriceBullet3.Text = status; break;
+
+                    case 8: lblPriceTem1.Text = status; break;
+                    case 9: lblPriceTem2.Text = status; break;
+                }
+            }
+        }
+
 
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -310,8 +338,9 @@ namespace Project
         private void Shop_Load(object sender, EventArgs e)
         {
             player = playerRepository.GetPlayer();
-
+            lblCoinCount.Text = player.Coins.ToString();
             LoadEquippedItems();
+            UpdatePurchaseLabels();
         }
     }
 }

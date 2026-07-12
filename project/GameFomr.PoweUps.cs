@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Properties;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -28,7 +29,10 @@ namespace Project
                         PowerUp.allPowerUps.RemoveAt(i);
                         i--;
                     }
-                    else GivePower(PowerUp.allPowerUps[i]);
+                    else
+                    {
+                        GivePower(PowerUp.allPowerUps[i]);
+                    }
                 }
             }
         }

@@ -11,12 +11,11 @@ namespace Project.Properties
     {
         ButtonHover,
         ShopHover,
-        ButtonClick,
         Shoot,
         Explosion,
-        PowerUp,
         Collect,
-        GameOver
+        GameOver,
+        Winner
     }
     public static class AudioManager
     {
@@ -26,8 +25,9 @@ namespace Project.Properties
             { SFXType.ShopHover,    @"Music\SFX\Options.wav" },
             { SFXType.Shoot,        @"Music\SFX\LaiserShooting.wav" },
             { SFXType.Explosion,    @"Music\SFX\boom.wav" },
-            { SFXType.Collect,      @"Music\SFX\Coin.wav" },
-            { SFXType.GameOver,     @"Music\SFX\GameOver.wav" }
+            { SFXType.Collect,      @"Music\SFX\collect.wav" },
+            { SFXType.GameOver,     @"Music\SFX\GameOver.wav" },
+            { SFXType.Winner,       @"Music\SFX\win.wav" }
         };
 
 
