@@ -4,16 +4,28 @@
     {
         List<Enemy> Wave;
 
-        private void SpawnEnemy()
+        private void SpawnEnemy(int row)
         {
-            int x, y = 10, distance = ClientSize.Width / (Wave.Count + 1);
-            x = distance;
+            int y = 10, baseCount = Wave.Count / row, remainder = Wave.Count % row;
+            int start = 0;
 
-            foreach (var i in Wave)
+            for (int i = 0; i < row; i++)
             {
-                i.Spawn(x, y);
-                x += distance;
+                int countThisRow = baseCount ;
+                if (i < remainder) countThisRow++;
+                int distance = ClientSize.Width / (countThisRow + 1);
+                int x = distance;
+
+                for (int j = 0; j < countThisRow; j++)
+                {
+                    Wave[start + j].Spawn(x, y);
+                    x += distance;
+                }
+
+                start += countThisRow;
+                y += SmallEnemyHeight * 2;
             }
+
         }
         private void RemoveEnemies()
         {
@@ -43,7 +55,7 @@
                     if (Wave[i] is ShooterEnemy) (Wave[i] as ShooterEnemy).Kill();
                     if (Wave[i] is HeavyTankEnemy) (Wave[i] as HeavyTankEnemy).Kill();
                     Wave.Remove(Wave[i]);
-                    
+
                     if (now - PlayerLastDamageTacken > DamageImmunity)
                     {
                         PlayerLastDamageTacken = now;
