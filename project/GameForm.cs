@@ -11,7 +11,9 @@ namespace Project
         public GameForm()
         {
 
-             InitializeComponent();
+            InitializeComponent();
+
+            LoadEquippedPaths();
 
             AudioManager.PlayMusic(path);
             //Dynamic Sizing
@@ -39,7 +41,7 @@ namespace Project
             GameTimer.Enabled = true;
             //player init
             int hp = 3;
-            if (currentPlayer.ExtraLife==1) hp++;
+            if (currentPlayer.ExtraLife == 1) hp++;
             player = new PlayerShip(hp, PlayerSpeed, ShipWidth, ShipHeight);
             player.Reset(ClientSize.Width, ClientSize.Height);
         }
@@ -60,13 +62,13 @@ namespace Project
                 AudioManager.PlaySFX(SFXType.Winner);
                 MessageBox.Show("Winnnnnnnnnnnnnnnnneeeeeeeeeeeeeeerrrrrrrrrrr !\n.");
                 this.Close();
-                return ;
+                return;
             }
             else
             {
                 PlayerDeath();
                 lblHP.Text = player.HP_count.ToString();
-                lblScoreCounter.Text=player.Score.ToString();
+                lblScoreCounter.Text = player.Score.ToString();
                 player.Move(ClientSize.Width, ClientSize.Height);
                 FireRateHolder();
                 UpdateEnemies();
@@ -90,16 +92,14 @@ namespace Project
                     "Exit",
                     MessageBoxButtons.OKCancel,
                     MessageBoxIcon.Question);
-                    
+
 
 
                 if (result == DialogResult.OK)
                 {
                     this.Close();
-                    GameTimer.Enabled = false;
                 }
-                GameTimer.Enabled = true;
-                return; 
+                return;
             }
 
             if (e.KeyCode == Keys.W)
@@ -150,6 +150,32 @@ namespace Project
             AudioManager.StopMusic();
             AudioManager.StopSFX();
             base.OnFormClosing(e);
+        }
+
+        private void LoadEquippedPaths()
+        {
+            ShopRepository repo = new ShopRepository();
+            var items = repo.GetAllItems();
+
+            foreach (var item in items)
+            {
+                if (!item.Equipped) continue;
+
+                switch (item.Category)
+                {
+                    case ShopItem.ShopCategory.Ship:
+                        GameForm.Ship_skin_path = item.ImagePath;
+                        break;
+
+                    case ShopItem.ShopCategory.Bullet:
+                        GameForm.bullet_skin_path = item.ImagePath;
+                        break;
+
+                    case ShopItem.ShopCategory.Background:
+                        GameForm.Background_Themes_path = item.ImagePath;
+                        break;
+                }
+            }
         }
     }
 }

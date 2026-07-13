@@ -35,6 +35,8 @@
             lblTitle = new Label();
             btnAbout = new Button();
             btnQuit = new Button();
+            lblHighScore = new Label();
+            lblScoreCounter = new Label();
             SuspendLayout();
             // 
             // btnPlay
@@ -105,6 +107,30 @@
             btnQuit.UseVisualStyleBackColor = true;
             btnQuit.Click += btnQuit_Click;
             // 
+            // lblHighScore
+            // 
+            lblHighScore.AutoSize = true;
+            lblHighScore.BackColor = Color.Transparent;
+            lblHighScore.Font = new Font("Simplified Arabic Fixed", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblHighScore.ForeColor = Color.FromArgb(128, 255, 128);
+            lblHighScore.Location = new Point(12, 441);
+            lblHighScore.Name = "lblHighScore";
+            lblHighScore.Size = new Size(208, 23);
+            lblHighScore.TabIndex = 6;
+            lblHighScore.Text = "Highest Score is :";
+            // 
+            // lblScoreCounter
+            // 
+            lblScoreCounter.AutoSize = true;
+            lblScoreCounter.BackColor = Color.Transparent;
+            lblScoreCounter.Font = new Font("Simplified Arabic Fixed", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblScoreCounter.ForeColor = Color.FromArgb(128, 255, 128);
+            lblScoreCounter.Location = new Point(216, 441);
+            lblScoreCounter.Name = "lblScoreCounter";
+            lblScoreCounter.Size = new Size(54, 23);
+            lblScoreCounter.TabIndex = 7;
+            lblScoreCounter.Text = "0000";
+            // 
             // MenuForm
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -113,6 +139,8 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(810, 473);
+            Controls.Add(lblScoreCounter);
+            Controls.Add(lblHighScore);
             Controls.Add(btnQuit);
             Controls.Add(btnAbout);
             Controls.Add(lblTitle);
@@ -124,6 +152,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Mini Space Shooter Simulation";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -134,5 +163,7 @@
         private Label lblTitle;
         private Button btnAbout;
         private Button btnQuit;
+        private Label lblHighScore;
+        private Label lblScoreCounter;
     }
 }

@@ -44,7 +44,10 @@ namespace Project
 
             //bg Music 
             AudioManager.PlayMusic(path);
-            
+
+            PlayerRepository repo = new PlayerRepository();
+            PlayerData currentPlayer = repo.GetPlayer();
+            lblScoreCounter.Text = currentPlayer.HighScore.ToString();
 
         }
         private void StyleButton(Button btn)
