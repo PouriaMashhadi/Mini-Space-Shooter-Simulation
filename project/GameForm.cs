@@ -84,15 +84,21 @@ namespace Project
         {
             if (e.KeyCode == Keys.Escape)
             {
+                GameTimer.Enabled = false;
                 var result = MessageBox.Show(
                     "Are You Sure You Want to Quit? coins and score will be saved but you need to start again!",
                     "Exit",
                     MessageBoxButtons.OKCancel,
                     MessageBoxIcon.Question);
+                    
+
 
                 if (result == DialogResult.OK)
+                {
                     this.Close();
-
+                    GameTimer.Enabled = false;
+                }
+                GameTimer.Enabled = true;
                 return; 
             }
 

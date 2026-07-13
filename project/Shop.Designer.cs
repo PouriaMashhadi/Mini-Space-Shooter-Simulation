@@ -55,9 +55,6 @@
             picBullet3 = new PictureBox();
             picBullet2 = new PictureBox();
             btnBack = new Button();
-            lblCoins = new Label();
-            pictureBox1 = new PictureBox();
-            lblCoinCount = new Label();
             grpTemplate = new GroupBox();
             lblPriceTem1 = new Label();
             lblPriceTem2 = new Label();
@@ -69,6 +66,9 @@
             lblPriceExtraHealth = new Label();
             lblExtra = new Label();
             pbExtraHealth = new PictureBox();
+            lblCoinCount = new Label();
+            pictureBox1 = new PictureBox();
+            lblCoins = new Label();
             grpShips.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picShip1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picShip2).BeginInit();
@@ -78,12 +78,12 @@
             ((System.ComponentModel.ISupportInitialize)picBullet1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picBullet3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picBullet2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             grpTemplate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbTemplate2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbTemplate1).BeginInit();
             grpExtra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbExtraHealth).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // lblTitle
@@ -385,49 +385,14 @@
             btnBack.BackColor = Color.Transparent;
             btnBack.FlatStyle = FlatStyle.Flat;
             btnBack.Font = new Font("Snap ITC", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnBack.ForeColor = Color.Cyan;
-            btnBack.Location = new Point(839, 632);
+            btnBack.ForeColor = Color.Yellow;
+            btnBack.Location = new Point(22, 14);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(177, 52);
             btnBack.TabIndex = 4;
             btnBack.Text = "Back";
             btnBack.UseVisualStyleBackColor = false;
             btnBack.Click += btnBack_Click;
-            // 
-            // lblCoins
-            // 
-            lblCoins.BackColor = Color.Transparent;
-            lblCoins.Font = new Font("Simplified Arabic Fixed", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCoins.ForeColor = Color.Yellow;
-            lblCoins.Location = new Point(85, 647);
-            lblCoins.Name = "lblCoins";
-            lblCoins.Size = new Size(100, 23);
-            lblCoins.TabIndex = 5;
-            lblCoins.Text = "Coins:";
-            lblCoins.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
-            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(49, 632);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(41, 46);
-            pictureBox1.TabIndex = 6;
-            pictureBox1.TabStop = false;
-            // 
-            // lblCoinCount
-            // 
-            lblCoinCount.BackColor = Color.Transparent;
-            lblCoinCount.Font = new Font("Sylfaen", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCoinCount.ForeColor = Color.Yellow;
-            lblCoinCount.Location = new Point(178, 644);
-            lblCoinCount.Name = "lblCoinCount";
-            lblCoinCount.Size = new Size(100, 23);
-            lblCoinCount.TabIndex = 7;
-            lblCoinCount.Text = "123";
-            lblCoinCount.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // grpTemplate
             // 
@@ -562,18 +527,53 @@
             pbExtraHealth.TabStop = false;
             pbExtraHealth.Click += pbExtraHealth_Click;
             // 
+            // lblCoinCount
+            // 
+            lblCoinCount.BackColor = Color.Transparent;
+            lblCoinCount.Font = new Font("Sylfaen", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCoinCount.ForeColor = Color.Yellow;
+            lblCoinCount.Location = new Point(923, 28);
+            lblCoinCount.Name = "lblCoinCount";
+            lblCoinCount.Size = new Size(100, 23);
+            lblCoinCount.TabIndex = 19;
+            lblCoinCount.Text = "123";
+            lblCoinCount.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Location = new Point(794, 16);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(41, 46);
+            pictureBox1.TabIndex = 18;
+            pictureBox1.TabStop = false;
+            // 
+            // lblCoins
+            // 
+            lblCoins.BackColor = Color.Transparent;
+            lblCoins.Font = new Font("Simplified Arabic Fixed", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCoins.ForeColor = Color.Yellow;
+            lblCoins.Location = new Point(830, 31);
+            lblCoins.Name = "lblCoins";
+            lblCoins.Size = new Size(100, 23);
+            lblCoins.TabIndex = 17;
+            lblCoins.Text = "Coins:";
+            lblCoins.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // Shop
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1043, 711);
-            Controls.Add(grpExtra);
-            Controls.Add(grpTemplate);
+            ClientSize = new Size(1043, 565);
             Controls.Add(lblCoinCount);
             Controls.Add(pictureBox1);
             Controls.Add(lblCoins);
+            Controls.Add(grpExtra);
+            Controls.Add(grpTemplate);
             Controls.Add(btnBack);
             Controls.Add(grpBullets);
             Controls.Add(grpShips);
@@ -594,7 +594,6 @@
             ((System.ComponentModel.ISupportInitialize)picBullet1).EndInit();
             ((System.ComponentModel.ISupportInitialize)picBullet3).EndInit();
             ((System.ComponentModel.ISupportInitialize)picBullet2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             grpTemplate.ResumeLayout(false);
             grpTemplate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbTemplate2).EndInit();
@@ -602,6 +601,7 @@
             grpExtra.ResumeLayout(false);
             grpExtra.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbExtraHealth).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -612,9 +612,6 @@
         private GroupBox grpShips;
         private GroupBox grpBullets;
         private Button btnBack;
-        private Label lblCoins;
-        private PictureBox pictureBox1;
-        private Label lblCoinCount;
         private PictureBox picShip4;
         private PictureBox picShip1;
         private PictureBox picShip2;
@@ -647,5 +644,8 @@
         private Label lblExtra;
         private Label lblPriceShip1;
         private Label lblPriceBullet1;
+        private Label lblCoinCount;
+        private PictureBox pictureBox1;
+        private Label lblCoins;
     }
 }
