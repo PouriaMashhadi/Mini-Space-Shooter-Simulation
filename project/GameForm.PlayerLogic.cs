@@ -48,7 +48,12 @@ namespace Project
         private void Player_Take_damage()
         {
             if(!Shield)
-            player.HP_count--;
+            {
+                player.HP_count--;
+                AudioManager.PlaySFX(SFXType.Damage);
+
+            }
+
         }
         private void PlayerDeath()
         {

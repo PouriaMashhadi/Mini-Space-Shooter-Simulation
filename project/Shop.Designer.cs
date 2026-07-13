@@ -560,6 +560,7 @@
             pbExtraHealth.Size = new Size(137, 117);
             pbExtraHealth.TabIndex = 15;
             pbExtraHealth.TabStop = false;
+            pbExtraHealth.Click += pbExtraHealth_Click;
             // 
             // Shop
             // 

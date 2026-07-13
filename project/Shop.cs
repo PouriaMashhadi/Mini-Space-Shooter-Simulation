@@ -223,6 +223,8 @@ namespace Project
 
             shopRepository.BuyItem(item.Id);
 
+            lblCoinCount.Text = player.Coins.ToString();
+
             MessageBox.Show("Purchase successful.");
             UpdatePurchaseLabels();
         }
@@ -249,7 +251,13 @@ namespace Project
 
                     case 8: lblPriceTem1.Text = status; break;
                     case 9: lblPriceTem2.Text = status; break;
+
                 }
+            }
+            ShopItem? extraHealthItem = shopRepository.GetItemById(10);
+            if (extraHealthItem != null)
+            {
+                lblPriceExtraHealth.Text = player.ExtraLife == 1 ? "Purchased" : $"{extraHealthItem.Price} Coins";
             }
         }
 
@@ -341,6 +349,34 @@ namespace Project
             lblCoinCount.Text = player.Coins.ToString();
             LoadEquippedItems();
             UpdatePurchaseLabels();
+        }
+
+        
+
+        private void pbExtraHealth_Click(object sender, EventArgs e)
+        {
+            ShopItem? extraHealthItem = shopRepository.GetItemById(10);
+            if (player.ExtraLife == 1)
+            {
+                MessageBox.Show("You already have Extra Life.");
+                return;
+            }
+
+            if (player.Coins < extraHealthItem.Price)
+            {
+                MessageBox.Show("Not enough coins.");
+                return;
+            }
+
+            player.Coins -= extraHealthItem.Price;
+            player.ExtraLife = 1;
+
+            playerRepository.UpdatePlayer(player);
+
+            lblCoinCount.Text = player.Coins.ToString();
+            pbExtraHealth.BackColor = SelectedColor; 
+
+            MessageBox.Show("Extra Life purchased!");
         }
     }
 }

@@ -15,7 +15,9 @@ namespace Project.Properties
         Explosion,
         Collect,
         GameOver,
-        Winner
+        Winner,
+        Damage,
+        Health
     }
     public static class AudioManager
     {
@@ -27,7 +29,9 @@ namespace Project.Properties
             { SFXType.Explosion,    @"Music\SFX\boom.wav" },
             { SFXType.Collect,      @"Music\SFX\collect.wav" },
             { SFXType.GameOver,     @"Music\SFX\GameOver.wav" },
-            { SFXType.Winner,       @"Music\SFX\win.wav" }
+            { SFXType.Winner,       @"Music\SFX\win.wav" },
+            { SFXType.Damage,       @"Music\SFX\Damage.wav" },
+            { SFXType.Health,       @"Music\SFX\Health.wav" }
         };
 
 

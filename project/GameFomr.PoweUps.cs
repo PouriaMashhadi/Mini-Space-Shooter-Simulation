@@ -25,6 +25,7 @@ namespace Project
                     if (PowerUp.allPowerUps[i].PowerUpNumber == 2)
                     {
                         player.HP_count++;
+                        AudioManager.PlaySFX(SFXType.Health);
                         BaseC.AllObject.Remove(PowerUp.allPowerUps[i]);
                         PowerUp.allPowerUps.RemoveAt(i);
                         i--;

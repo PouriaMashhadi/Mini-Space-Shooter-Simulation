@@ -31,14 +31,15 @@ namespace Project
         {
             // reset objects
             ClearStage();
-
+            PlayerRepository repo = new PlayerRepository();
+            PlayerData currentPlayer = repo.GetPlayer();
             // image init
             ImageSetUp();
             EnemyWaveSetUp(WaveCounter);
             GameTimer.Enabled = true;
             //player init
             int hp = 3;
-            if (does_have_ExtraLive) hp++;
+            if (currentPlayer.ExtraLife==1) hp++;
             player = new PlayerShip(hp, PlayerSpeed, ShipWidth, ShipHeight);
             player.Reset(ClientSize.Width, ClientSize.Height);
         }
@@ -135,6 +136,10 @@ namespace Project
             PlayerRepository repository = new PlayerRepository();
 
             repository.SaveGame(player.Coin, player.Score);
+
+            PlayerData currentPlayer = repository.GetPlayer();
+            currentPlayer.ExtraLife = 0;
+            repository.UpdatePlayer(currentPlayer);
 
             AudioManager.StopMusic();
             AudioManager.StopSFX();

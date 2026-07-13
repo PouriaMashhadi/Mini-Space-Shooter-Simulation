@@ -57,6 +57,7 @@ namespace Project
                     if (Wave[i] is ShooterEnemy) (Wave[i] as ShooterEnemy).Kill();
                     if (Wave[i] is HeavyTankEnemy) (Wave[i] as HeavyTankEnemy).Kill();
                     Wave.Remove(Wave[i]);
+                    AudioManager.PlaySFX(SFXType.Explosion);
 
                     if (now - PlayerLastDamageTacken > DamageImmunity)
                     {
