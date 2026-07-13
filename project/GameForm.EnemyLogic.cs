@@ -115,7 +115,7 @@ namespace Project
         }
         private void GiveScore(Enemy enemy)
         {
-            player.Score = enemy.Score;
+            player.Score += enemy.Score;
             MakePowerUp(enemy.X + SmallEnemyWidth - CoinWidth / 2, enemy.Y + SmallEnemyHeight);
             if (enemy is HeavyTankEnemy) new Coin(enemy.X + SmallEnemyWidth - CoinWidth / 2, enemy.Y + SmallEnemyHeight, CoinWidth, CoinHeight, PlayerSpeed);
             if (enemy is TerroristEnemy) new Coin(enemy.X + (SmallEnemyWidth - CoinWidth) / 2, enemy.Y + SmallEnemyHeight, CoinWidth, CoinHeight, PlayerSpeed);

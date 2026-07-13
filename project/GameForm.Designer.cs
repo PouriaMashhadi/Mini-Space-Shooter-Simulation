@@ -48,10 +48,9 @@
             lblStageCounter.BackColor = Color.Transparent;
             lblStageCounter.Font = new Font("Snap ITC", 18F, FontStyle.Italic, GraphicsUnit.Point, 0);
             lblStageCounter.ForeColor = Color.OrangeRed;
-            lblStageCounter.Location = new Point(720, 7);
-            lblStageCounter.Margin = new Padding(2, 0, 2, 0);
+            lblStageCounter.Location = new Point(1080, 10);
             lblStageCounter.Name = "lblStageCounter";
-            lblStageCounter.Size = new Size(26, 31);
+            lblStageCounter.Size = new Size(38, 46);
             lblStageCounter.TabIndex = 0;
             lblStageCounter.Text = "1";
             // 
@@ -61,10 +60,9 @@
             lblHP.BackColor = Color.Transparent;
             lblHP.Font = new Font("Snap ITC", 15.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
             lblHP.ForeColor = Color.Red;
-            lblHP.Location = new Point(118, 10);
-            lblHP.Margin = new Padding(2, 0, 2, 0);
+            lblHP.Location = new Point(177, 15);
             lblHP.Name = "lblHP";
-            lblHP.Size = new Size(78, 27);
+            lblHP.Size = new Size(119, 42);
             lblHP.TabIndex = 1;
             lblHP.Text = "label1";
             // 
@@ -74,9 +72,10 @@
             lblWave.BackColor = Color.Transparent;
             lblWave.Font = new Font("Snap ITC", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblWave.ForeColor = Color.OrangeRed;
-            lblWave.Location = new Point(637, 14);
+            lblWave.Location = new Point(956, 21);
+            lblWave.Margin = new Padding(4, 0, 4, 0);
             lblWave.Name = "lblWave";
-            lblWave.Size = new Size(78, 22);
+            lblWave.Size = new Size(113, 31);
             lblWave.TabIndex = 2;
             lblWave.Text = "Wave :";
             // 
@@ -86,10 +85,9 @@
             lblHPTitle.BackColor = Color.Transparent;
             lblHPTitle.Font = new Font("Snap ITC", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblHPTitle.ForeColor = Color.Red;
-            lblHPTitle.Location = new Point(75, 16);
-            lblHPTitle.Margin = new Padding(2, 0, 2, 0);
+            lblHPTitle.Location = new Point(112, 24);
             lblHPTitle.Name = "lblHPTitle";
-            lblHPTitle.Size = new Size(39, 22);
+            lblHPTitle.Size = new Size(56, 31);
             lblHPTitle.TabIndex = 3;
             lblHPTitle.Text = "HP";
             // 
@@ -99,9 +97,10 @@
             lblScore.BackColor = Color.Transparent;
             lblScore.Font = new Font("Snap ITC", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblScore.ForeColor = Color.OrangeRed;
-            lblScore.Location = new Point(637, 36);
+            lblScore.Location = new Point(956, 54);
+            lblScore.Margin = new Padding(4, 0, 4, 0);
             lblScore.Name = "lblScore";
-            lblScore.Size = new Size(73, 22);
+            lblScore.Size = new Size(108, 31);
             lblScore.TabIndex = 4;
             lblScore.Text = "Score:";
             // 
@@ -111,20 +110,19 @@
             lblScoreCounter.BackColor = Color.Transparent;
             lblScoreCounter.Font = new Font("Snap ITC", 18F, FontStyle.Italic, GraphicsUnit.Point, 0);
             lblScoreCounter.ForeColor = Color.OrangeRed;
-            lblScoreCounter.Location = new Point(720, 36);
-            lblScoreCounter.Margin = new Padding(2, 0, 2, 0);
+            lblScoreCounter.Location = new Point(1080, 54);
             lblScoreCounter.Name = "lblScoreCounter";
-            lblScoreCounter.Size = new Size(26, 31);
+            lblScoreCounter.Size = new Size(38, 46);
             lblScoreCounter.TabIndex = 5;
             lblScoreCounter.Text = "1";
             // 
             // GameForm
             // 
-            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleDimensions = new SizeF(144F, 144F);
             AutoScaleMode = AutoScaleMode.Dpi;
             AutoSize = true;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(800, 332);
+            ClientSize = new Size(1231, 742);
             Controls.Add(lblScoreCounter);
             Controls.Add(lblScore);
             Controls.Add(lblHPTitle);
@@ -132,8 +130,7 @@
             Controls.Add(lblHP);
             Controls.Add(lblStageCounter);
             KeyPreview = true;
-            Margin = new Padding(2);
-            MinimumSize = new Size(10, 10);
+            MinimumSize = new Size(22, 56);
             Name = "GameForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Game";
