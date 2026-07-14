@@ -99,6 +99,10 @@ namespace Project
                 {
                     this.Close();
                 }
+                else
+                {
+                    GameTimer.Enabled = true;
+                }
                 return;
             }
 
