@@ -41,8 +41,8 @@ namespace Project
             Check_bullet_Collision_withEnemy();
             Check_Enemy_Collision();
             Check_Player_Collision_withEnemyBullet();
-            ShooterEnemy.Shoot(SmallEnemyWidth, SmallEnemyHeight, bulletWidth, bulletHeight, (int)(BulletSpeed * 0.4));
-            HeavyTankEnemy.Shoot(SmallEnemyWidth * 2, SmallEnemyHeight, bulletWidth, bulletHeight, (int)(BulletSpeed * 0.4));
+            ShooterEnemy.Shoot(Shooterasize, Shooterasize, bulletWidth, bulletHeight, (int)(BulletSpeed * 0.4));
+            HeavyTankEnemy.Shoot(HeavyTankSize, HeavyTankSize, bulletWidth, bulletHeight, (int)(BulletSpeed * 0.4));
             EnemyBullet.MoveBullets(ClientSize.Height, ClientSize.Width);
         }
         private void Check_Enemy_Collision()
@@ -117,7 +117,7 @@ namespace Project
         {
             player.Score += enemy.Score;
             MakePowerUp(enemy.X + SmallEnemyWidth - CoinWidth / 2, enemy.Y + SmallEnemyHeight);
-            if (enemy is HeavyTankEnemy) new Coin(enemy.X + SmallEnemyWidth - CoinWidth / 2, enemy.Y + SmallEnemyHeight, CoinWidth, CoinHeight, PlayerSpeed);
+            if (enemy is HeavyTankEnemy) player.Coin++;
             if (enemy is TerroristEnemy) new Coin(enemy.X + (SmallEnemyWidth - CoinWidth) / 2, enemy.Y + SmallEnemyHeight, CoinWidth, CoinHeight, PlayerSpeed);
         }
     }
