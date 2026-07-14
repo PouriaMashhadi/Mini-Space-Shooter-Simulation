@@ -71,7 +71,7 @@ namespace Project
             EnemyBullet.AllBullets.Clear();
             bullet.allBullets.Clear();
             PowerUp.allPowerUps.Clear();
-            WaveCounter = 10;
+            WaveCounter = 1;
         }
     }
 }
